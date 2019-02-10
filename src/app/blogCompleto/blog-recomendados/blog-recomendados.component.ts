@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-blog-recomendados',
+  selector: 'blog-recomendados',
   templateUrl: './blog-recomendados.component.html',
   styleUrls: ['./blog-recomendados.component.css']
 })

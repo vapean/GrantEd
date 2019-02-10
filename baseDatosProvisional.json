@@ -1,0 +1,38 @@
+
+{
+    "becas": [
+        {
+            "id": 12,
+            "nombre": " hkdf sjk",
+            "tipo": "busdfbla"
+        },
+        {
+            "id": 13,
+            "nombre": "sndjnsjs",
+            "tipo": "kokoko"
+        },
+        {
+            "id": 14,
+            "nombre": "sd hs hcds",
+            "tipo": "nmnjbh"
+        }
+    ],
+
+    "libros": [
+        {
+            "id": "as",
+            "nombre": " hkdf sjk",
+            "tipo": "busdfbla"
+        },
+        {
+            "id": "ad",
+            "nombre": "sndjnsjs",
+            "tipo": "kokoko"
+        },
+        {
+            "id": "af",
+            "nombre": "sd hs hcds",
+            "tipo": "nmnjbh"
+        }
+    ]
+}

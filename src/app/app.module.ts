@@ -31,7 +31,8 @@ import { BlogMainComponent } from "./blogCompleto/blog-main/blog-main.component"
 import { MainBlogComponent } from "./MainCompleto/main-blog/main-blog.component";
 
 import { AngularFontAwesomeModule } from "angular-font-awesome";
-import { FormsModule} from '@angular/forms'
+import { FormsModule} from '@angular/forms';
+import { ErrorComponent } from './error/error.component'
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { FormsModule} from '@angular/forms'
     MainServiciosComponent,
     MainComponent,
     BlogMainComponent,
-    MainBlogComponent
+    MainBlogComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-post-autor',
+  selector: 'post-autor',
   templateUrl: './post-autor.component.html',
   styleUrls: ['./post-autor.component.css']
 })
