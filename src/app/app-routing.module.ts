@@ -10,12 +10,12 @@ import { UsuarioComponent } from './UsuarioCompleto/usuario/usuario.component';
 import { PostComponent } from './PostCompleto/post/post.component';
 import { ErrorComponent } from './error/error.component';
 import { RegistroComponent } from './UsuarioCompleto/registro/registro.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
 
   { path: 'main', component: MainComponent },
-  { path: 'servicios', component: ServiciosComponent },
   { path: 'comofunciona', component: ComoFuncionaComponent },
   { path: 'servicios', component: ServiciosComponent },
   { path: 'servicios/buscador', component: BuscadorComponent },
@@ -24,8 +24,9 @@ const routes: Routes = [
   { path: 'contacto', component: ContactoComponent },
   { path: 'usuario/:idUsuario', component: UsuarioComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'login', component: LoginComponent },
 
- 
+
   { path: '**', component: ErrorComponent}
 ];
 

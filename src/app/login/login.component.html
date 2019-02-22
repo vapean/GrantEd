@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-lg-10 col-xl-10 mx-auto">
+    <div class="card card-signin flex-row my-5">
+      <div class="card-img-left d-none d-md-flex">
+      </div>
+      <div class="card-body">
+        <h4 class="card-title text-center"> ¡Me alegro de verte de vuelta! </h4>
+        <hr>
+
+        <form class="form-signin" novalidate [formGroup]="formRegistro" (ngSubmit)="manejarLogin()">
+          <div class="form-label-group">
+            <label for="inputUserame">Usuario</label>
+            <input type="text" id="inputUserame" class="form-control" placeholder="Usuario" required autofocus
+              formControlName='username'>
+            <p *ngIf="formRegistro.controls['username'].errors?.required && formRegistro.controls['username'].dirty">
+              El campo username es requerido
+            </p>
+            <p *ngIf="formRegistro.controls['username'].errors?.maxlength && formRegistro.controls['username'].dirty">
+              El campo username tiene un tamaño maximo de {{formRegistro.controls['username'].errors.maxlength.requiredLength}} caracteres y has introducido {{formRegistro.controls['username'].errors.maxlength.actualLength}} caracteres
+            </p>
+          </div>
+
+          <div class="form-label-group">
+            <label for="inputPassword">Contraseña</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required formControlName='password'>
+            <p *ngIf="formRegistro.controls['password'].errors?.pattern && formRegistro.controls['password'].dirty">
+              The password must be alphanumeric with at least one number, one letter, and be between 6-15 character in length
+            </p>
+          </div>
+
+    
+
+
+          <button class="btn btn-lg btn-primary btn-block text-uppercase mt-5 botonReactivo" type="submit"  type="submit" [ngClass]="{'button-disabled': formRegistro.invalid}" [disabled]="formRegistro.invalid"
+          > Accede </button>
+          <div class="text-center">
+                <a class="small" href="#">¿Olvidaste la contraseña?</a></div>
+
+
+          <hr class="my-4">
+
+          <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fa fa-google "></i>
+            Accede con Google</button>
+          <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
+              class="fa fa-facebook-f "></i>
+            Accede con Facebook</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- ----------------------- -->
+
+
+
+

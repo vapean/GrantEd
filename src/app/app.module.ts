@@ -31,8 +31,15 @@ import { BlogMainComponent } from "./blogCompleto/blog-main/blog-main.component"
 import { MainBlogComponent } from "./MainCompleto/main-blog/main-blog.component";
 
 import { AngularFontAwesomeModule } from "angular-font-awesome";
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ErrorComponent } from './error/error.component'
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { NgxPopper } from 'angular-popper';
+
+import {MatStepperModule} from '@angular/material/stepper'; 
+import { MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -65,13 +72,24 @@ import { ErrorComponent } from './error/error.component'
     MainComponent,
     BlogMainComponent,
     MainBlogComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
-    FormsModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPopper,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,45 @@
-<p>
-  cabecera works!
-</p>
+<nav class="cabecera navbar navbar-expand-lg sticky-top navbar-dark bg-dark ">
+  <a class="navbar-brand" [routerLink]="['/home']"><img src="../../assets/logoarrastraos.png" alt="Logo Granted"></a>
+  <button class="navbar-toggler btn btn-outline-warning" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/main']">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/comofunciona']">¿Cómo Funciona?</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Servicios
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" [routerLink]="['servicios/buscador']">Buscador de Becas</a>
+          <a class="dropdown-item" [routerLink]="['servicios/blog']">Blog</a>
+        </div>
+      </li>
+      
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Usuarios
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item"[routerLink]="['/registro']" >Registrate</a>
+            <a class="dropdown-item" [routerLink]="['/login']"> ¿Ya registrado?<p>Accede</p>  </a>
+          </div>
+        </li>
+        
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/contacto']">Contactanos</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+
+
+
