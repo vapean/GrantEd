@@ -1,3 +1,93 @@
-<p>
-  blog-main works!
-</p>
+<blog-keywords></blog-keywords>
+
+<div class="container ">
+
+  <div class="row">
+    <div class="sectionTitle ">
+      <h2 class="textTitle">Post sobre Keyword </h2>
+    </div>
+  </div>
+  <hr>
+
+
+  <div class="new-posts">
+    <div class="row justify-content-center no-gutters mb-5 mb-lg-0 rowheight">
+      <div class="col-lg-6">
+        <img class="img-fluid" src="../../../assets/images/g-salad.jpg" alt="imagen 1">
+      </div>
+      <div class="col-lg-6">
+
+        <div class="bg-green text-center">
+
+          <button class="btn bg-white rounded text-success p-2 mt-2 mr-2 float-right"
+            [routerLink]="['/servicios/blog/:keyword']">#KeyWord</button>
+          <div class="description-text my-auto text-center text-lg-left">
+            <h3>Post 1</h3>
+            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius esse iure quaerat beatae,
+              laborum fugiat culpa. Molestiae eum et molestias, cupiditate dolor dolorum deserunt nulla voluptatibus
+              provident. Numquam, rem molestiae. <a class="font-weight-bold green-text" [routerLink]="['/servicios/blog/post/:tituloPost']">Leer mas</a></p> 
+            <hr class="d-none d-lg-block mb-0 ml-0">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center no-gutters">
+      <div class="col-lg-6">
+        <img class="img-fluid" src="../../../assets/images/g-shutterbug.jpg" alt="imagen 2">
+      </div>
+      <div class="col-lg-6 order-lg-first">
+        <div class="bg-green text-center ">
+          <button class="btn bg-white rounded text-success p-2 mt-2 ml-2 float-left"
+            [routerLink]="['/servicios/blog/:keyword']">#KeyWord</button>
+
+          <div class="description-text my-auto text-center text-lg-right">
+            <h3 class="">Post 2</h3>
+            <p class="mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate soluta maiores hic
+              laudantium fugit, amet eligendi esse accusamus harum laboriosam? Nesciunt iusto debitis cupiditate eum a
+              delectus, provident laboriosam eaque? <a class="font-weight-bold green-text" [routerLink]="['/servicios/blog/post/:tituloPost']">Leer mas</a></p>
+            <hr class="d-none d-lg-block mb-0 mr-0 right">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+      <div class="col-lg-6">
+        <img class="img-fluid" src="../../../assets/images/g-minimalismo.jpg" alt="imagen 1">
+      </div>
+      <div class="col-lg-6">
+        <div class="bg-green text-center">
+          <button class="btn bg-white rounded text-success p-2 mt-2 mr-2 float-right"
+            [routerLink]="['/servicios/blog/:keyword']">#KeyWord</button>
+          <div class="description-text my-auto text-center text-lg-left">
+            <h3>Post 3</h3>
+            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius esse iure quaerat beatae,
+              laborum fugiat culpa. Molestiae eum et molestias, cupiditate dolor dolorum deserunt nulla voluptatibus
+              provident. Numquam, rem molestiae. <a class="font-weight-bold green-text" [routerLink]="['/servicios/blog/post/:tituloPost']">Leer mas</a></p>
+            <hr class="d-none d-lg-block mb-0 ml-0">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <nav class="mx-auto">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Anteriores</a>
+          </li>
+          <li class="page-item active ">
+            <a class="page-link number" href="#">1 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item "><a class="page-link number" href="#">2</a></li>
+          <li class="page-item "><a class="page-link number" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Siguiente</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</div>

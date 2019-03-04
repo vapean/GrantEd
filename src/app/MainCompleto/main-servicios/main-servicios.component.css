@@ -1,0 +1,77 @@
+
+.images
+{
+    width: 80vw;
+}
+
+.images article{
+    width: 50%;
+    float: left;
+    margin-bottom: -5px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+ .images article:hover .velo{
+    opacity: 1;
+}
+
+ .images article .velo{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    transition: 1s;
+}
+
+  .images article .velo h3{
+    position: relative;
+    top: 30%;
+    text-align: center;
+    left: 500px;
+    transition: 1s;
+    color: rgb(3, 206, 3) !important;
+    font-size: 3em
+}
+
+
+   
+
+
+
+ .images article:hover .velo h4,  .images article:hover .velo h3{
+    left: 0px;
+}
+
+ .images article:hover img{
+    transform: rotateZ(10deg) scale(1.5);
+}
+ .images article img{
+    width: 100%;
+    height: auto;
+     transition: 1.5s;
+}
+
+
+@media(max-width: 576px) {
+    .images article .velo h3{
+       
+        font-size: 1em
+    }
+}
+@media(max-width: 768px) {
+    .images article .velo h3{
+       
+        font-size: 2em
+    }
+}
+
+
+
+
+
+

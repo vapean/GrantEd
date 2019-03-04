@@ -23,6 +23,7 @@
     "@angular/router": "~7.2.0",
     "angular-font-awesome": "^3.1.2",
     "angular-popper": "^2.0.0",
+    "angular-wizard-form": "^0.4.1",
     "animate.css": "^3.7.0",
     "bootstrap": "^4.2.1",
     "bootstrap-select": "^1.13.5",

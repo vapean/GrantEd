@@ -1,5 +1,5 @@
 <div class="row no-gutter">
-  <div class="d-none d-md-flex col-md-3 col-lg-5 bg-image"></div>
+  <div class="d-none d-md-flex col-md-3 col-lg-5 image bg-image"></div>
   <div class="col-md-9 col-lg-7">
     <div class="login d-flex align-items-center py-5">
       <div class="container">
@@ -15,6 +15,10 @@
                 <div class="col-md-12 col-lg-6 pr-5">
                   <div class="form-label-group">
                     <label>¿Cómo te llamas?</label>
+                    <!-- <mat-form-field>
+                        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </mat-form-field> -->
                     <input class="form-control" name="name" id="name" type="text" placeholder="Introduce tu apellido"
                       autofocus formControlName='nombre'>
 

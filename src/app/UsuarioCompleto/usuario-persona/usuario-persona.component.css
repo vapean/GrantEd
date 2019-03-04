@@ -1,0 +1,14 @@
+.btn {
+    font-size: 90%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+.image {
+    width: 70%;
+    height: auto;
+    border-radius: 50%;
+    text-align: center
+}

@@ -11,6 +11,7 @@ import { PostComponent } from './PostCompleto/post/post.component';
 import { ErrorComponent } from './error/error.component';
 import { RegistroComponent } from './UsuarioCompleto/registro/registro.component';
 import { LoginComponent } from './login/login.component';
+import { BlogMainComponent } from './blogCompleto/blog-main/blog-main.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'servicios', component: ServiciosComponent },
   { path: 'servicios/buscador', component: BuscadorComponent },
   { path: 'servicios/blog', component: BlogComponent },
-  { path: 'servicios/blog/:tituloPost', component: PostComponent },
+  { path: 'servicios/blog/:keyword', component: BlogMainComponent},
+  { path: 'servicios/blog/post/:tituloPost', component: PostComponent },
   { path: 'contacto', component: ContactoComponent },
   { path: 'usuario/:idUsuario', component: UsuarioComponent },
   { path: 'registro', component: RegistroComponent },
@@ -31,7 +33,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,97 +1,68 @@
-<!-- 
-  <mat-horizontal-stepper >
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your name</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      You are now done.
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-      </div>
-    </mat-step>
-  </mat-horizontal-stepper>
-   -->
-   <div class="row">
-    <div class="col-lg-5">
-      
-        
-     </div>
-     <div class="col-md-12 col-lg-7 ">
-  <mat-card>
-        <mat-card-content>
-          <mat-card-title>Contactanos</mat-card-title>
-          <p>¿Tienes alguna sugerencia?¿Conoces de alguna beca que no este en nuestra base? No dudes en contactarnos</p>
-      
-          <mat-vertical-stepper>
-            <mat-step [stepControl]="firstFormGroup">
-              <form [formGroup]="firstFormGroup" novalidate>
-                <ng-template matStepLabel>Introduce tus datos</ng-template>
-                <div class="row">
-                    <mat-form-field>
-                        <input type="text" matInput placeholder="Nombre y apellidos" formControlName="name">
-                      </mat-form-field>
-                </div>
 
-                <div class="row">
-                    <mat-form-field>
-                        <input matInput placeholder="Dirección email" formControlName="email">
+<div class="row">
+    <div class="col-lg-10 col-xl-10 mx-auto">
+      <div class="card card-signin flex-row my-4">
+        <div class="card-img-left d-none d-md-flex">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title text-center"> Contactanos </h4>
+          <hr>
+
+          <mat-card>
+              <mat-card-content>
+                <p>¿Tienes alguna sugerencia?¿Conoces de alguna beca que no este en nuestra base? No dudes en contactarnos</p>
+        
+                <mat-vertical-stepper>
+                  <mat-step [stepControl]="firstFormGroup">
+                    <form [formGroup]="firstFormGroup" class="form-full-width">
+                      <ng-template matStepLabel>Introduce tus datos</ng-template>
+                      <div class="row">
+                        <mat-form-field class="input-full-width">
+                          <input type="text" matInput placeholder="Nombre y apellidos" formControlName="name">
+                        </mat-form-field>
+                      </div>
+        
+                      <div class="row">
+                        <mat-form-field class="input-full-width">
+                          <input matInput placeholder="Dirección email" formControlName="email">
+                        </mat-form-field>
+                      </div>
+        
+        
+                      <div>
+                        <button mat-raised-button color="warn" matStepperNext>Siguiente</button>
+                      </div>
+                    </form>
+                  </mat-step>
+                  <mat-step [stepControl]="secondFormGroup">
+                    <form [formGroup]="secondFormGroup" class="form-full-width">
+                      <ng-template matStepLabel>¿Qué querías decirnos?</ng-template>
+                      <mat-form-field class="input-full-width">
+                          <textarea matInput placeholder="Escribe tu mensaje" formControlName="message"></textarea>
                       </mat-form-field>
-                </div>
-                
-               
-                <div>
-                  <button mat-raised-button color="warn" matStepperNext>Siguiente</button>
-                </div>
-              </form>
-            </mat-step>
-            <mat-step [stepControl]="secondFormGroup">
-              <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>¿Qué querías decirnos?</ng-template>
-                <mat-form-field>
-                  <input matInput placeholder="Mensaje" formControlName="message">
-                </mat-form-field>
-                <div>
-                  <button mat-raised-button color="accent" matStepperPrevious>Atrás</button>
-                  <button mat-raised-button color="warn" matStepperNext>Siguiente</button>
-                </div>
-              </form>
-            </mat-step>
-            <mat-step>
-              <ng-template matStepLabel>¡Hecho!</ng-template>
-              <p> <strong>¡Muchas gracias por tu aportación!</strong> </p>
-              <p>Nos pondremos en contacto lo antes posible</p> 
-              <div>
-                <button mat-raised-button color="accent" matStepperPrevious>Atrás</button>
-              </div>
-            </mat-step>
-          </mat-vertical-stepper>
-      
-        </mat-card-content>
-      
-      </mat-card>
-     </div>
-   </div>
- 
+                      
+                      <div>
+                        <button mat-raised-button color="accent" matStepperPrevious>Atrás</button>
+                        <button mat-raised-button color="warn" matStepperNext>Siguiente</button>
+                      </div>
+                    </form>
+                  </mat-step>
+                  <mat-step [stepControl]="secondFormGroup">
+                    <ng-template matStepLabel>¡Hecho!</ng-template>
+                    <p> <strong>¡Muchas gracias por tu aportación!</strong> </p>
+                    <p>Nos pondremos en contacto lo antes posible</p>
+                    <div>
+                      <button mat-raised-button color="accent" matStepperPrevious>Atrás</button>
+                    </div>
+                  </mat-step>
+                </mat-vertical-stepper>
+        
+              </mat-card-content>
+        
+            </mat-card>
   
+        
+        </div>
+      </div>
+    </div>
+  </div>

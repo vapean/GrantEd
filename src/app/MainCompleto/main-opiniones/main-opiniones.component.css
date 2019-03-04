@@ -1,0 +1,22 @@
+
+.card {
+    background-color: rgba(67, 247, 67, 0.24);
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+.carousel-control-next, .carousel-control-prev {
+    width: 5%;
+}
+
+.carousel-item{
+    padding: 2vw 10vw
+
+}
+
+span{
+    background-color: rgba(101, 250, 101, 0.651);
+    border-radius: 50%;
+
+}

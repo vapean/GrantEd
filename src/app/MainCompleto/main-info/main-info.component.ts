@@ -12,4 +12,8 @@ export class MainInfoComponent implements OnInit {
   ngOnInit() {
   }
 
+  scroll(element) {
+    window.scrollTo(element.yPosition)
+}
+
 }

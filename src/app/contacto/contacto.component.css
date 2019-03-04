@@ -1,0 +1,57 @@
+
+  
+  .bg-image {
+    background-image: url('https://images.unsplash.com/photo-1522364723953-452d3431c267?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* -----------Estilos de la card-------------- */
+
+  .card-signin {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+  
+  .card-signin .card-title {
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  
+  .card-signin .card-img-left {
+    width: 55%;
+    background: scroll center url('https://images.unsplash.com/photo-1522364723953-452d3431c267?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+  }
+  
+  .card-signin .card-body {
+    padding: 2rem 3em;
+  }
+
+  .mat-card{
+padding: 0 em
+  }
+  
+  
+
+
+  .mat-card:not([class*="mat-elevation-z"]) {
+    box-shadow: 0 0px 0px 0px rgba(0,0,0,0),0 0px 0px 0 rgba(0,0,0,.14),0 0px 0px 0 rgba(0,0,0,.12);
+  }
+
+
+  .form-full-width {
+    max-width: 30em;
+    width:100%;
+}
+
+.input-full-width {
+    width:30em;
+}
+input-full-width-height{
+    width:30em;
+    height: 20em
+}

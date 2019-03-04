@@ -1,0 +1,40 @@
+  .new-posts .description-text {
+      padding: 4em 5em 0em 5em;
+  }
+
+  .bg-green {
+      background-color: rgba(67, 247, 67, 0.24) !important;
+      height: 100%
+  }
+
+  .title-image {
+      width: 100%;
+      height: 13em;
+      overflow: hidden;
+  }
+
+  .post-image {
+      max-width: 16em;
+      height: 18em;
+      overflow: hidden;
+  }
+
+  .description-text img{
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  .description-text .mediun {
+      border-color: #64a19d;
+      border-width: .25rem;
+      width: 60%;
+  }
+
+  @media (max-width: 991.98px){
+   
+    
+    .new-posts .description-text {
+        padding: 3em 3em 0em 3em;
+    }
+}

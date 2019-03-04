@@ -1,3 +1,251 @@
-<p>
-  usuario-persona works!
-</p>
+<div class="row m-4">
+  <div class="col-12 mx-auto">
+
+    <div class="row">
+      <div class="col-4">
+        <div class="image mx-auto ">
+          <img src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image">
+        </div>
+      </div>
+      <div class="col-4 offset-4">
+        <mat-progress-spinner color="primary" mode="determinate" value=80> </mat-progress-spinner>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-11 col-lg-10 mx-auto">
+        <h3 class="login-heading mb-3 font-weight-bold text-center">Datos personales</h3>
+
+        <hr>
+
+        <form novalidate [formGroup]="formRegistro" (ngSubmit)="manejarFormulario()">
+
+          <div class="row mb-3 mt-5">
+            <div class="col-md-12 col-lg-6 pr-5">
+              <div class="form-label-group">
+                <label>¿Cómo te llamas?</label>
+
+                <input class="form-control" name="name" id="name" type="text" placeholder="Introduce tu apellido"
+                  autofocus formControlName='nombre'>
+
+                <p *ngIf="formRegistro.controls['nombre'].errors?.required && formRegistro.controls['nombre'].dirty">
+                  Necesitamos un nombre para poder recordarte
+                </p>
+
+                <p *ngIf="formRegistro.controls['nombre'].errors?.maxlength && formRegistro.controls['nombre'].dirty">
+                  El campo nombre tiene un tamaño maximo de
+                  {{formRegistro.controls['nombre'].errors.maxlength.requiredLength}}
+                  caracteres y has escrito {{formRegistro.controls['nombre'].errors.maxlength.actualLength}}
+                  caracteres
+                </p>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-6 pl-5">
+              <div class="form-label-group">
+                <label for="inputSurname">¿Cuál es tu apellido?</label>
+                <input class="form-control" name="surname" id="surname" placeholder="Introduce tu apellido" type="text"
+                  formControlName='surname'>
+
+                <p *ngIf="formRegistro.controls['surname'].errors?.required && formRegistro.controls['surname'].dirty">
+                  Necesitamos un apellido para poder recordarte
+                </p>
+
+                <p *ngIf="formRegistro.controls['surname'].errors?.maxlength && formRegistro.controls['surname'].dirty">
+                  El campo apellido tiene un tamaño maximo de
+                  {{formRegistro.controls['surname'].errors.maxlength.requiredLength}}
+                  caracteres y has escrito {{formRegistro.controls['surname'].errors.maxlength.actualLength}}
+                  caracteres
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mb-3">
+            <div class="col-md-12 col-lg-6 pr-5">
+              <div class="form-label-group">
+                <label for="inputUsername">¿Con que nombre quieres que te llamemos?</label>
+                <input class="form-control" name="username" id="username" placeholder="Introduce tu nombre de usuario"
+                  type="text" formControlName='username'>
+
+                <p
+                  *ngIf="formRegistro.controls['username'].errors?.required && formRegistro.controls['username'].dirty">
+                  Necesitamos que nos digas con que nombre referirnos a ti
+                </p>
+
+                <p
+                  *ngIf="formRegistro.controls['username'].errors?.maxlength && formRegistro.controls['username'].dirty">
+                  EL campo usuario tiene un tamaño maximo de
+                  {{formRegistro.controls['username'].errors.maxlength.requiredLength}}
+                  caracteres y has escrito {{formRegistro.controls['username'].errors.maxlength.actualLength}}
+                  caracteres
+                </p>
+              </div>
+
+            </div>
+            <div class="col-md-12 col-lg-6 pl-5">
+              <div class="form-label-group">
+                <label for="inputEmail">¿En que email podemos contactarte? </label>
+                <input type="email" class="form-control" id="mail" name="mail" placeholder="¡Prometemos no enviar
+                              span!" formControlName='mail'>
+                <p *ngIf="formRegistro.controls['mail'].errors?.required && formRegistro.controls['mail'].dirty">
+                  Necesitamos un email en el que poder enviarte las mejores novedades </p>
+                <p *ngIf="formRegistro.controls['mail'].errors?.pattern && formRegistro.controls['mail'].dirty">
+                  El campo email debe tener el formato correcto
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row mb-3">
+            <div class="col-md-12 col-lg-6 pr-5">
+              <div class="form-label-group">
+                <label>¡Protégete con una buena contraseña!</label>
+                <input type="password" class="form-control" name="password" id="password"
+                  placeholder="Introduce tu contraseña" formControlName='password'>
+                <p *ngIf="formRegistro.controls['password'].errors?.pattern && formRegistro.controls['password'].dirty">
+                  Para mayor seguridad la contraseña tiene que tenes al menos 6 caracteres y contener al menos
+                  un
+                  numero y una letra
+                </p>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-6 pl-5">
+              <div class="form-label-group">
+
+                <label>Repite la contraseña para doble seguridad</label>
+
+                <input type="password" class="form-control" name="r-password" id="r-password"
+                  placeholder="Repite tu contraseña" formControlName='password_repeat'>
+                <p *ngIf="formRegistro.errors?.repeatpassword ">
+                  {{formRegistro.errors.repeatpassword}}
+                </p>
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="remember_pasword">
+                <label class="custom-control-label" for="customCheck1">Recordar Contraseña</label>
+              </div>
+            </div>
+          </div>
+
+
+          
+          <h3 class="login-heading mb-3 font-weight-bold text-center">Intereses</h3>
+
+          <hr>
+          <div class="row mb-3 mt-5">
+            <div class="col-md-12 col-lg-6 pr-5">
+              <div class="form-label-group">
+                <label>¿ Que área de estudio te interesa?</label>
+                <select class="selectpicker" name="study_field" id="study_field" data-live-search="true"
+                  title="Elige todas los que te quieras" data-size="5" multiple>
+                  <option [value]="field" *ngFor="let field of arrFields">{{field}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-lg-6 pl-5 ">
+              <div class="form-label-group">
+                <label> ¿Que tipo de curso quieres estudiar?</label>
+                <select class="selectpicker" name="study_level" id="study_level" data-live-search="true"
+                  title="Elige tantos como te interesen" data-size="5" multiple>
+                  <option [value]="level" *ngFor="let level of arrLevels">{{level}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row mb-3">
+            <div class="col-md-12 col-lg-6 pr-5">
+              <div class="form-label-group">
+                <label> ¿De donde eres?</label>
+                <select class="selectpicker" name="country_origin" id="" data-live-search="true"
+                  title="Selecciona tu nacionalidad" data-size="5">
+                  <option [value]="country" *ngFor="let country of arrCountries">{{country}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-lg-6 pl-5 ">
+              <div class="form-label-group">
+                <label> ¿En que provincia estudias? (Sólo España)</label>
+                <select class="selectpicker" name="province_destination" id="province_destination_"
+                  data-live-search="true" title="Selecciona todas las que te interesen" data-size="5" multiple>
+                  <option [value]="province" *ngFor="let province of arrProvinces">{{province}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row mb-3">
+            <div class="col-md-12 col-lg-6 pr-5">
+              <div class="form-label-group">
+                <label> ¿En que pais quieres disfrutar tu beca?</label>
+                <select class="selectpicker" name="country_destination" id="country_destination" data-live-search="true"
+                  title="Selecciona todos los que te interesen" data-size="5" multiple>
+                  <option [value]="country" *ngFor="let country of arrCountries">{{country}}</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-6 pl-5 ">
+              <div class="form-label-group">
+                <label>¿Cuando quieres empezar?</label>
+                <select class="selectpicker" name="date" id="date" title="Selecciona el semestre" multiple>
+                  <option id="date_primer" value="primer">Primer semestre</option>
+                  <option id="date_segundo" value="segundo">Segundo semestre</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mb-3">
+            <div class="col-md-12 col-lg-6 pr-5">
+              <div class="form-label-group">
+                <label>¿Qué edad tienes?</label>
+                <input type="text" name="age" id="age" class="form-control" formControlName='age'>
+                <p *ngIf="formRegistro.controls['age'].errors?.age && formRegistro.controls['age'].dirty">
+                  {{formRegistro.controls['age'].errors?.age}}
+                </p>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-6 pl-5 ">
+              <label>¿Cual es tu género?</label>
+              <select class="selectpicker" name="gender" id="gender" title="Selecciona tu sexo">
+                <option value="male">Hombre</option>
+                <option value="female">Mujer</option>
+                <option value="other">Otro</option>
+              </select>
+
+            </div>
+          </div>
+
+        </form>
+
+
+      </div>
+
+
+    </div>
+
+    <usuario-becas></usuario-becas>
+
+    <div class="row">
+      <div class="col-4 offset-2">
+        <button class="btn btn-lg btn-primary btn-block text-uppercase mt-5" type="submit"> Modificar </button>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-lg btn-danger btn-block text-uppercase mt-5" type="submit"> Salir </button>
+      </div>
+    </div>
+  </div>
+</div>

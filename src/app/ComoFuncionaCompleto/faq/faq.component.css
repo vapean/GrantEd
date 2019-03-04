@@ -1,0 +1,25 @@
+.btn-link {
+    font-weight: 700;
+    color:rgb(1, 1, 56) ;
+    text-decoration: none
+}
+.card-header{
+    transition: 400ms
+}
+
+.card-header:hover{
+    background-color: rgb(3, 206, 3);
+    color:#222225
+
+}
+
+.card-header{
+    background-color:  rgba(101, 250, 101, 0.651);
+
+}
+
+
+
+
+
+

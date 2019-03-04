@@ -1,0 +1,15 @@
+li {
+    margin-right: 1rem !important
+}
+a{
+    color:  rgb(3, 206, 3);
+}
+i{
+    font-size: 1.2em
+}
+a:hover{
+    color:  rgb(1, 87, 1)
+}
+h4{
+    color:  rgb(3, 206, 3) !important
+}
