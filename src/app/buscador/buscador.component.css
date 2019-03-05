@@ -1,0 +1,65 @@
+.btn {
+    font-size: 90%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+.image {
+    width: 70%;
+    height: auto;
+    border-radius: 50%;
+    text-align: center
+}
+
+
+/* --------------------- */
+
+
+  
+  .login-heading {
+    font-weight: 300;
+  }
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    border-radius: 2rem;
+  }
+  
+  .form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  
+  
+  
+  /* ------Estilos validado------- */
+    
+  input.ng-invalid.ng-dirty{
+    border: 2px solid red;
+  }
+  
+  input.ng-valid.ng-dirty{
+    border: 2px solid green;
+  }
+  
+  .button-disabled{
+    background: red
+  }
+  .botonReactivo{
+    background:#007bff;
+  }
+  
+  p {
+  font-size: 0.75rem;
+  color: grey;
+  }
+  
+  
+  
+  
+  
