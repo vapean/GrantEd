@@ -5,14 +5,19 @@
         <div class="card-img-left d-none d-md-flex">
         </div>
         <div class="card-body">
-          <h4 class="card-title text-center"> Contactanos </h4>
-          <hr>
+          <div class="row">
+            <div class="sectionTitle">
+                <h2 class="textTitle"> Contáctanos </h2>
+                <hr class="mb-0">
+            </div>
+          </div>
+          
 
           <mat-card>
               <mat-card-content>
                 <p>¿Tienes alguna sugerencia?¿Conoces de alguna beca que no este en nuestra base? No dudes en contactarnos</p>
         
-                <mat-vertical-stepper>
+                <mat-vertical-stepper class="marginV">
                   <mat-step [stepControl]="firstFormGroup">
                     <form [formGroup]="firstFormGroup" class="form-full-width">
                       <ng-template matStepLabel>Introduce tus datos</ng-template>

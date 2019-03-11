@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuariosService } from '../usuarios.service';
 
 @Component({
   selector: 'cabecera',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabeceraComponent implements OnInit {
 
-  constructor() { }
+  
+  constructor(public usuariosService: UsuariosService) {
+   }
 
   ngOnInit() {
   }
 
+
+  
+
 }
+
+

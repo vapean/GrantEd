@@ -84,3 +84,11 @@ section .section-title {
 .cursor{
     cursor: pointer;
 }
+
+.image{
+
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+}

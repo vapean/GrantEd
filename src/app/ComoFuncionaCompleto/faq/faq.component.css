@@ -1,7 +1,11 @@
 .btn-link {
-    font-weight: 700;
+    font-weight: 400;
     color:rgb(1, 1, 56) ;
     text-decoration: none
+}
+.bold{
+    font-weight: 700;
+
 }
 .card-header{
     transition: 400ms
@@ -17,6 +21,7 @@
     background-color:  rgba(101, 250, 101, 0.651);
 
 }
+
 
 
 

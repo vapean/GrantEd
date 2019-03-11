@@ -9,15 +9,14 @@
   <div class="col-lg-9 col-sm-11 mx-auto">
       <div class="accordion shadow totalWidth" id="accordionExample">
           <div class="card">
-            <div class="card-header" id="headingOne">
+            <div class="card-header" id="headingOne" (click)="activeFaq($event)">
               <h2 class="mb-0">
-                 <button  id= "button"class="btn btn-link " type="button" data-toggle="collapse" data-target="#collapseOne"
-                  aria-expanded="true" aria-controls="collapseOne">
-                  Pregunta 1 </button>
+                 <button  id= "button1" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"aria-expanded="false" aria-controls="collapseOne" [ngClass]="{'bold': activeQuestion1}">
+                  ¿Qué servicios ofrece GrantEd? </button>
               </h2>
             </div>
       
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body">
                 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
                 officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
@@ -29,11 +28,11 @@
             </div>
           </div>
           <div class="card">
-            <div class="card-header" id="headingTwo">
+            <div class="card-header" id="headingTwo" (click)="activeFaq($event)">
               <h2 class="mb-0">
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
-                  aria-expanded="false" aria-controls="collapseTwo">
-                  Pregunta 2
+                  aria-expanded="false" aria-controls="collapseTwo" [ngClass]="{'bold': activeQuestion2}" id= "button2">
+                  ¿Es necesario estar registrado?
                 </button>
               </h2>
             </div>
@@ -49,11 +48,11 @@
             </div>
           </div>
           <div class="card">
-            <div class="card-header" id="headingThree">
+            <div class="card-header" id="headingThree" (click)="activeFaq($event)">
               <h2 class="mb-0">
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
-                  aria-expanded="false" aria-controls="collapseThree">
-                  Pregunta 3
+                  aria-expanded="false" aria-controls="collapseThree"  [ngClass]="{'bold': activeQuestion3}" id= "button3">
+                  ¿Puedo encontrar aquí todas las becas disponibles?
                 </button>
               </h2>
             </div>
@@ -69,11 +68,11 @@
             </div>
           </div>
           <div class="card">
-              <div class="card-header" id="headingFour">
+              <div class="card-header" id="headingFour" (click)="activeFaq($event)">
                 <h2 class="mb-0">
                   <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
-                    aria-expanded="false" aria-controls="collapseFour">
-                    Pregunta 4
+                    aria-expanded="false" aria-controls="collapseFour"  [ngClass]="{'bold': activeQuestion4}" id= "button4">
+                    ¿Tenéis convenios con alguna empresa/organización?
                   </button>
                 </h2>
               </div>
@@ -89,11 +88,11 @@
               </div>
             </div>
             <div class="card">
-                <div class="card-header" id="headingFive">
+                <div class="card-header" id="headingFive" (click)="activeFaq($event)">
                   <h2 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive"
-                      aria-expanded="false" aria-controls="collapseFive">
-                      Pregunta 5
+                      aria-expanded="false" aria-controls="collapseFive"  [ngClass]="{'bold': activeQuestion5}" id= "button5">
+                      Conozco alguna beca que no está en vuestra web, ¿Qué puedo hacer?
                     </button>
                   </h2>
                 </div>

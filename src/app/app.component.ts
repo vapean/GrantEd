@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,27 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'GrantEd';
 
-  constructor() {
-    
+  showIntertitial: boolean
+  url:any
+
+
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.showIntertitial = false
+    this.activatedRoute.url.subscribe(activeUrl =>{
+      this.url = window.location.pathname;
+      console.log(this.url)
+    });
+  }
+  
+  ngOnInit() {
+    if (this.url != "/registro" && this.url !="/login") {
+      setTimeout(() => {
+        this.showIntertitial = true
+      }, 1800)
+    }
   }
 
-  ngOnInit() {
-    
+  hideInsterstitial() {
+    this.showIntertitial = false
   }
 }

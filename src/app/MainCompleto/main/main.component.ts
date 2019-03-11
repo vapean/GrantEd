@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  showIntertitial: boolean
+  
+  constructor() {
+    this.showIntertitial = false
+   }
 
   ngOnInit() {
+    console.log(this.showIntertitial)
+    setTimeout(() => {
+      this.showIntertitial = true
+    }, 18000)
+  }
+  hideInsterstitial() {
+    this.showIntertitial = false
   }
 
 }

@@ -14,11 +14,15 @@ export class ContactoComponent implements OnInit {
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-      name: ['', Validators.required], email: ['', Validators.required] 
+      name: ['',
+        Validators.required],
+      email: ['',
+        Validators.required] 
     });
     
     this.secondFormGroup = this._formBuilder.group({
-      message: ['', Validators.required]
+      message: ['',
+        Validators.required]
     });
   }
 

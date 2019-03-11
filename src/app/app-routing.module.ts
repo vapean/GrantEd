@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'servicios/blog/:keyword', component: BlogMainComponent},
   { path: 'servicios/blog/post/:tituloPost', component: PostComponent },
   { path: 'contacto', component: ContactoComponent },
-  { path: 'usuario/:idUsuario', component: UsuarioComponent },
+  { path: 'usuario', component: UsuarioComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
 

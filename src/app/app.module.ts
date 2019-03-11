@@ -40,7 +40,8 @@ import { LoginComponent } from './login/login.component';
 
 
 import { NgxPopper } from 'angular-popper';
-import {MatStepperModule} from '@angular/material/stepper'; 
+import { MatStepperModule } from '@angular/material/stepper'; 
+import {MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatIconModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
@@ -97,7 +98,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSelectModule
 
   ],
   providers: [],

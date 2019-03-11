@@ -11,6 +11,10 @@
 .green {
     background-color: rgba(67, 247, 67, 0.24)
 }
+.btn-success{
+    background-color: rgb(3, 206, 3);
+    border: rgb(3, 206, 3)
+  }
 .green-text{
     color: rgb(3, 206, 3)
 }
@@ -70,7 +74,7 @@ cite, .blockquote-footer {
 }
 
 .textTitle {
-    font-size: 2.2em
+    font-size: 2em
 }
 
 .totalWidth {

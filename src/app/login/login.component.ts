@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsuariosService } from '../usuarios.service';
-import { debounceTime } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,40 +9,51 @@ import { debounceTime } from 'rxjs/operators';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  formRegistro: FormGroup;
+  formLogin: FormGroup;
+  result: string
+  comprobacionResultado: boolean
 
-  constructor(private usuariosService: UsuariosService) {}
+
+  constructor(private usuariosService: UsuariosService, private router: Router) {
+    this.result = ""
+   }
 
   ngOnInit() {
-    this.formRegistro = new FormGroup(
+    this.formLogin = new FormGroup(
       {
-        
+
         username: new FormControl("Ojellav", [
           Validators.required,
           Validators.maxLength(15)
         ]),
-        
-        password: new FormControl("Caba22lla", [
+
+        password: new FormControl("Admin1234", [
+          Validators.required,
           Validators.pattern(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/)
         ]),
-        
       },
     );
 
-  
-    let usernameControl = this.formRegistro.controls["username"];
-    usernameControl.valueChanges.pipe(debounceTime(500)).subscribe(value => {
-    });
-
-    
   }
 
-  
+
   manejarLogin() {
-    this.usuariosService.loginFormulario(this.formRegistro.value).subscribe(res => {
-      console.log(res)
+    // console.log(this.formLogin.value)
+    this.usuariosService.loginFormulario(this.formLogin.value).subscribe(res => {
+      this.result = res["mensaje"]
+      this.comprobacionResultado = res["resultado"]
+      
+      if (res["resultado"] == true) {
+        localStorage.setItem("token", res["token"]);
+      }
+     
     })
   }
+
+  continuarUsuario() {
+    this.router.navigate(['usuario']);
+  }
+
 }
 
-  
+
