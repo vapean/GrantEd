@@ -1,130 +1,43 @@
 <section class="pb-4">
 
-        <div class="row">
-                <div class="sectionTitle ">
-                    <h3 class="textTitle">Post Recomendados</h3>
-                </div>
+    <div class="row">
+        <div class="sectionTitle ">
+            <h3 class="textTitle">Post Recomendados</h3>
         </div>
-        <hr>
-          
-              <div class="row">
-                  <div class="col-sm-6 col-md-3 mx-auto cursor" [routerLink]="['/servicios/blog/post/:tituloPost']" >
-                      <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                          <div class="mainflip">
-                              <div class="frontside">
-                                  <div class="card">
-                                      <div class="card-body text-center">
-                                          <div class="image mb-3">
-                                                <img class=" img-fluid" src="../../../assets/images/adult-aerial-background-1437904.jpg" alt="card image">
-                                          </div>
-                                         
-                                          <h4 class="card-title">Titulo Post</h4>
-                                          <p class="card-text">This is basic card with image on top, title, description and button.</p>
-                                          <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="backside"  >
-                                  <div class="card">
-                                      <div class="card-body text-center mt-4">
-                                          <h4 class="card-title">Titulo Post</h4>
-                                          <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                         
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                 
-                  <div class="col-sm-6 col-md-3 mx-auto cursor" [routerLink]="['/servicios/blog/post/:tituloPost']" >
-                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                        <div class="mainflip">
-                            <div class="frontside">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <div class="image mb-3">
-                                              <img class=" img-fluid" src="../../../assets/images/adult-aerial-background-1437904.jpg" alt="card image">
-                                        </div>
-                                       
-                                        <h4 class="card-title">Titulo Post</h4>
-                                        <p class="card-text">This is basic card with image on top, title, description and button.</p>
-                                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                    </div>
+    </div>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-sm-6 col-md-3 mx-auto cursor" [routerLink]="['/servicios/blog/post', blogImportante.id]" *ngFor="let blogImportante of arrBlogsImportantes">
+            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                <div class="mainflip">
+                    <div class="frontside">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="image mb-3">
+                                    <img class=" img-fluid"
+                                        src="../../../assets/images/adult-aerial-background-1437904.jpg"
+                                        alt="card image">
                                 </div>
+
+                                <h4 class="card-title">{{blogImportante.title}}</h4>
+                                <p class="card-text">{{blogImportante.subtitle}}</p>
+                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                             </div>
-                            <div class="backside"  >
-                                <div class="card">
-                                    <div class="card-body text-center mt-4">
-                                        <h4 class="card-title">Titulo Post</h4>
-                                        <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                       
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="backside">
+                        <div class="card">
+                            <div class="card-body text-center mt-4">
+                                <h4 class="card-title">{{blogImportante.title}}</h4>
+                                <p class="card-text">{{blogImportante.description}}</p>
+
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-sm-6 col-md-3 mx-auto cursor" [routerLink]="['/servicios/blog/post/:tituloPost']" >
-                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                        <div class="mainflip">
-                            <div class="frontside">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <div class="image mb-3">
-                                              <img class=" img-fluid" src="../../../assets/images/adult-aerial-background-1437904.jpg" alt="card image">
-                                        </div>
-                                       
-                                        <h4 class="card-title">Titulo Post</h4>
-                                        <p class="card-text">This is basic card with image on top, title, description and button.</p>
-                                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="backside"  >
-                                <div class="card">
-                                    <div class="card-body text-center mt-4">
-                                        <h4 class="card-title">Titulo Post</h4>
-                                        <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                       
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 mx-auto cursor" [routerLink]="['/servicios/blog/post/:tituloPost']" >
-                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                        <div class="mainflip">
-                            <div class="frontside">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <div class="image mb-3">
-                                              <img class=" img-fluid" src="../../../assets/images/adult-aerial-background-1437904.jpg" alt="card image">
-                                        </div>
-                                       
-                                        <h4 class="card-title">Titulo Post</h4>
-                                        <p class="card-text">This is basic card with image on top, title, description and button.</p>
-                                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="backside"  >
-                                <div class="card">
-                                    <div class="card-body text-center mt-4">
-                                        <h4 class="card-title">Titulo Post</h4>
-                                        <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                       
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-                  
-              </div>
-      </section>
+            </div>
+        </div>
+    </div>
+</section>

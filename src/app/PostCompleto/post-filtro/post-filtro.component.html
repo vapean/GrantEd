@@ -1,7 +1,7 @@
 <div class="row">
 
   <div class="sectionTitle ">
-    <h3 class="textTitle">Titulo del Post </h3>
+    <h3 class="textTitle">{{post?.title}} </h3>
   </div>
 </div>
 <hr>
@@ -10,8 +10,8 @@
 <div class="new-posts">
 
   <div class="row justify-content-center no-gutters mb-5 mb-lg-0 rowheight">
-    <div class="col-lg-11 mx-auto title-image">
-      <img src="../../../assets/images/g-architecture.jpg" alt="imagen 1">
+    <div class="col-lg-11 mx-auto title-image-container">
+      <img [src]="post?.imagen_1" alt="imagen 1" class="title-image">
     </div>
 
     <div class="col-lg-11 mx-auto">
@@ -20,10 +20,11 @@
           [routerLink]="['/servicios/blog/:keyword']">#KeyWord</button>
 
         <div class="description-text">
-          <h4>Subtitulo del Post</h4>
+          <h4>{{post?.subtitle}}</h4>
           <hr class=" mb-4 ml-0 mediun">
 
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius esse iure quaerat beatae,
+          <div [innerHTML]="post?.text"></div>
+          <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius esse iure quaerat beatae,
             laborum fugiat culpa. Molestiae eum et molestias, cupiditate dolor dolorum deserunt nulla voluptatibus
             provident. Numquam, rem molestiae.+
           </p>
@@ -76,10 +77,17 @@
             provident. Numquam, rem molestiae.+ Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus,
             sed facilis dolorum ea nostrum blanditiis, atque soluta cum minus voluptates recusandae optio cupiditate,
             dolor aut adipisci est. Inventore, nemo cum.
-          </p>
+          </p> -->
 
           <hr class="mb-4 ml-0 mediun">
-          <post-autor></post-autor>
+          <p>Escrito por <button type="button" class="btn border rounded border-success ml-1" data-toggle="modal"
+              data-target="#exampleModalCenter">
+              <p class="mb-0"> {{post?.author}}</p>
+
+            </button></p>
+
+
+          
         </div>
 
       </div>
@@ -88,3 +96,50 @@
 
 </div>
 <post-comentarios></post-comentarios>
+
+
+
+
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content  p-4">
+
+                <div class="card">
+                  <div class="card-body text-center">
+                    <p><img class=" img-fluid"
+                        src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image">
+                    </p>
+                    <h4 class="card-title">{{post?.author}}</h4>
+                    <p class="card-text">{{post?.author_description}}</p>
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <a class="social-icon text-xs-center" target="_blank" href="#">
+                          <i class="fa fa-facebook"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a class="social-icon text-xs-center" target="_blank" href="#">
+                          <i class="fa fa-twitter"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a class="social-icon text-xs-center" target="_blank" href="#">
+                          <i class="fa fa-skype"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a class="social-icon text-xs-center" target="_blank" href="#">
+                          <i class="fa fa-google"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>

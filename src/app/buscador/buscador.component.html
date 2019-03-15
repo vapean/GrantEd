@@ -1,5 +1,97 @@
 <div class="container">
   <div class="row">
+
+    <div class="sectionTitle text-center">
+      <h2 class="textTitle"> Buscador </h2>
+      <hr class="mb-0">
+    </div>
+    <div class="w-100 px-4">
+
+
+      <form novalidate [formGroup]="formBuscador" (ngSubmit)="manejarBuscador()" *ngIf="formBuscador">
+
+        <div class="row mb-3 mt-5">
+          <div class="col-md-12 col-lg-6 pr-5">
+            <mat-form-field>
+              <mat-select placeholder="Area de estudios" formControlName="study_field" [(ngModel)]="usuario.study_field"
+                multiple>
+                <mat-option *ngFor="let field of arrFields" [value]="field.toLowerCase()">{{field}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-12 col-lg-6 pl-5 ">
+            <mat-form-field>
+              <mat-select placeholder="Tipo de estudios" formControlName="study_level" [(ngModel)]="usuario.study_level"
+                multiple>
+                <mat-option *ngFor="let level of arrLevels" [value]="level">{{level}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+          <div class="col-md-12 col-lg-6 pr-5">
+            <mat-form-field>
+              <mat-select placeholder="Pais de origen" formControlName="country_origin"
+                [(ngModel)]="usuario.country_origin" multiple>
+                <mat-option *ngFor="let country of arrCountries" [value]="country.iso2">{{country.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-12 col-lg-6 pl-5">
+            <mat-form-field>
+              <mat-select placeholder="Pais de destino" formControlName="country_destination"
+                [(ngModel)]="usuario.country_destination" multiple>
+                <mat-option *ngFor="let country of arrCountries" [value]="country.iso2">{{country.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+
+        <div class="row mb-3">
+          <div class="col-md-12 col-lg-6 pr-5 hide" [ngClass]="{'mostrar': comprobacionPais}">
+            <mat-form-field>
+              <mat-select placeholder="Provincia de origen" formControlName="province_origin"
+                [(ngModel)]="usuario.province_origin" multiple>
+                <mat-option *ngFor="let province of arrProvinces" [value]="province">{{province}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-12 col-lg-6 pl-5 hide" [ngClass]="{'mostrar': comprobacionPais}">
+            <mat-select placeholder="Provincia de destino" formControlName="province_destination"
+              [(ngModel)]="usuario.province_destination" multiple>
+              <mat-option *ngFor="let province of arrProvinces" [value]="province">{{province}}
+              </mat-option>
+            </mat-select>
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+          <div class="col-4 mx-auto">
+            <button class=" botonReactivo btn btn-lg btn-primary btn-block text-uppercase"
+              [ngClass]="{'button-disabled': formBuscador.invalid}" [disabled]="formBuscador.invalid" type="submit">
+              ¡Encuéntrame las mejores becas! </button>
+            <!-- [disabled]="formBuscador.invalid" -->
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- <div class="row">
     <div class="w-100 px-4">
 
 
@@ -110,7 +202,7 @@
     </div>
 
 
-  </div>
+  </div> -->
 
   <resultados></resultados>
 </div>

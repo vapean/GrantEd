@@ -19,7 +19,7 @@ export class UsuariosService {
 
   enviarUpdate(form) {
     // console.log(form)
-    return this.httpClient.post(`${this.url}/update`, { 'name': form.name, 'surname': form.surname, 'username': form.username, 'password': form.password, 'email': form.mail, 'address': form.adress, 'age': form.age, 'country_origin': form.country_origin, 'province_origin': form.province_origin, 'country_destination': form.country_destination, 'province_destination': form.province_destination, 'study_field': form.study_field, 'study_level': form.study_level, 'date': form.date, 'gender': form.gender, 'token': form.token })
+    return this.httpClient.post(`${this.url}/update`, { 'name': form.name, 'surname': form.surname, 'username': form.username, 'password': form.password, 'email': form.mail, 'address': form.adress, 'age': form.age, 'country_origin': form.country_origin, 'province_origin': form.province_origin, 'country_destination': form.country_destination, 'province_destination': form.province_destination, 'study_field': form.study_field, 'study_level': form.study_level, 'date': form.date, 'gender': form.gender, 'image':form.image, 'token': form.token })
   }
 
   loginFormulario(form) {

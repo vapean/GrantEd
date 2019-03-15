@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UsuariosService } from 'src/app/usuarios.service';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators'
 
 
 declare var $;
@@ -24,14 +27,16 @@ export class UsuarioPersonaComponent {
   // comprobacionResultado: boolean
   usuario: any
 
+  // firebase
+  uploadPercent: Observable<number>
+  downloadURL: Observable<string>
+  urlImagen: string
 
-  constructor(private usuarioService: UsuariosService, private router: Router) {
+
+  constructor(private usuarioService: UsuariosService, private router: Router, private storage: AngularFireStorage) {
     this.result = ""
     this.usuario = {}
     this.comprobacionPais = true
-
-
-
     this.arrCountries =
       [
         {
@@ -2003,7 +2008,6 @@ export class UsuarioPersonaComponent {
           "phone_code": 263
         }
       ]
-
     this.arrProvinces = ['A Coruña', 'Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz', 'Baleares', 'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba', 'Cuenca', 'Girona', 'Granada', 'Guadalajara', 'Gipuzkoa', 'Huelva', 'Huesca', 'Jaén', 'La Rioja', 'Las Palmas', 'León', 'Lérida', 'Lugo', 'Madrid', 'Málaga', 'Murcia', 'Navarra', 'Ourense', 'Palencia', 'Pontevedra', 'Salamanca', 'Segovia', 'Sevilla', 'Soria', 'Tarragona', 'Santa Cruz de Tenerife', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza']
 
     this.arrLevels = ['Concursos', 'Curso corto', 'Doctorado', 'Formación Profesional', 'Fellowship', 'Idiomas', 'Máster', 'Postdoctorado', 'Práctica', 'Grado Universitario', 'Residencia artística', 'Otros']
@@ -2011,23 +2015,12 @@ export class UsuarioPersonaComponent {
     this.arrGenders = ['Hombre', 'Mujer', 'Otro']
 
     this.arrFields = ['Acústica', 'Administración de Empresas', 'Administración Publica', 'Alemán', 'Arquitectura', 'Artes', 'Astronomía', 'Bellas Artes', 'Biología', 'Botánica', 'Chino', 'Ciencias Agrícolas', 'Ciencias Naturales', 'Ciencias Políticas', 'Cine', 'Cirugía', 'Coaching', 'Comercio Exterior', 'Comunicación', 'Contaduria', 'Coreano', 'Derecho', 'DIseño', 'Ecología y Medio Ambiente', 'Economía', 'Educación', 'Emprendimiento', 'Energías Alternativas', 'Especialidades en Medicina', 'Estadística', 'Estudios Bibliográficos', 'Estucios Culturales', 'Estudios del Desarrollo', 'Farmacología', 'Filología / Letras', 'Finanzas', 'Físisa', 'Fotografia', 'Frances', 'Gastronomñia', 'Genética', 'Gestión de eventos', 'Griego', 'Hebreo', 'Historia', 'Hosteleria y Turismo', 'Humanidades', 'Ingeniería', 'Inglés', 'Italiano', 'Japones', 'Marketing Digital', 'Matemáticas', 'Medicina', 'Meditación', 'Moda', 'Música', 'Neurociencia', 'Oftafmología', 'Periodismo', 'Portugués', 'Psicología', 'Psiquiatría', 'Química', 'Relaciones Internacionales', 'Salud Pública', 'Sociología', 'Sostenibilidad', 'Tecnología e ingormática', 'Turismo', 'Urbanismo', 'Veterinaria', 'Zoología']
-  }
-
-
-  ngOnInit() {
 
   }
 
+  
   ngAfterViewInit() {
-
     this.loadForm().then(() => {
-      // setTimeout(() => {
-      //   $('#gender').val(this.usuario.gender)
-      //   $('#country_origin').val(this.usuario.country_origin)
-
-      //   $('.selectpicker').selectpicker('refresh');
-      // }, 100)
-
     })
   }
 
@@ -2035,10 +2028,11 @@ export class UsuarioPersonaComponent {
     let res = await this.usuarioService.getUserP({ 'token': localStorage.getItem('token') })
 
     this.usuario = res[0]
+
+    this.urlImagen = this.usuario.image
     // console.log(this.usuario);
 
     this.comprobacionPais = this.usuario.country_origin == "ES"
-
     this.usuario.country_destination = this.usuario.country_destination.split(",")
     this.usuario.country_origin = this.usuario.country_origin.split(",")
     this.usuario.study_level = this.usuario.study_level.split(",")
@@ -2068,7 +2062,6 @@ export class UsuarioPersonaComponent {
           Validators.required,
           Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
         ]),
-
         study_field: new FormControl('', []),
         study_level: new FormControl('', []),
         country_origin: new FormControl('', [
@@ -2080,15 +2073,36 @@ export class UsuarioPersonaComponent {
         date: new FormControl(this.usuario.date, []),
         gender: new FormControl('', []),
         age: new FormControl(this.usuario.age, [this.ageValidator])
-      }
-      // este va a nivel del formulario general proque tiene que acceder a mas de un imput
+      },
     );
-
-
   }
 
+  onChangeImagen($event) {
+    const image = $event.target.files[0]
+    let imageName = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    console.log(imageName)
+    const filePath = 'imagenes/'+imageName+'.jpg';
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, image);
+
+    console.log(task.percentageChanges());
+    this.uploadPercent = task.percentageChanges();
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        this.downloadURL = fileRef.getDownloadURL()
+        this.downloadURL.subscribe(url => {
+          this.urlImagen = url
+          this.usuario.imagen = url
+     })
+      })
+    )
+      .subscribe()
+    // this.usuarioService.getUserP({ 'token': localStorage.getItem('token') })
+  }
+
+  
+
   ageValidator(control) {
-    // console.log(control.value)
     if (isNaN(control.value) == true) {
       return { age: "Debe ser un numero" };
     }
@@ -2098,6 +2112,7 @@ export class UsuarioPersonaComponent {
     return null;
   }
 
+  
 
   // comprobarEspana(pais) {
   //   this.comprobacionPais = pais.target.value == ["ES"]
@@ -2105,20 +2120,11 @@ export class UsuarioPersonaComponent {
   // }
 
   manejarUpdate() {
-    // console.log(this.formUpdate.value)
-    console.log(typeof this.formUpdate.value.study_field)
+    console.log(this.formUpdate.value)
     
-
     if (this.formUpdate.value.study_field.length > 0) {
       this.formUpdate.value.study_field = this.formUpdate.value.study_field.join(',')
     }
-
-    // if (typeof this.formUpdate.value.study_field == "object") {
-    //   this.formUpdate.value.study_field = this.formUpdate.value.study_field.join(',')
-    // }
-
-    console.log(this.formUpdate.value.study_field)
-
     if (this.formUpdate.value.study_level.length > 0) {
       this.formUpdate.value.study_level = this.formUpdate.value.study_level.join(',')
     }
@@ -2137,14 +2143,14 @@ export class UsuarioPersonaComponent {
     if (this.formUpdate.value.province_destination.length > 0) {
       this.formUpdate.value.province_destination = this.formUpdate.value.province_destination.join(',')
     }
-    // console.log(this.formUpdate.value)
     this.formUpdate.value.token = localStorage.getItem('token')
+    this.formUpdate.value.image = this.urlImagen
 
     this.usuarioService.enviarUpdate(this.formUpdate.value).subscribe(res => {
-      // console.log(res.mensaje);
       this.result = res['mensaje']
     });
   }
+
 
   userExit() {
     localStorage.clear()

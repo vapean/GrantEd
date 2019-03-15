@@ -8,83 +8,24 @@
   <hr>
 
   <div class="new-posts">
-      <div class="row justify-content-center no-gutters mb-5 mb-lg-0 rowheight">
-        <div class="col-lg-6">
-          <img class="img-fluid" src="../../../assets/images/g-salad.jpg" alt="imagen 1">
-        </div>
-        <div class="col-lg-6">
-  
-          <div class="bg-green text-center">
-  
-            <button class="btn bg-white rounded text-success p-2 mt-2 mr-2 float-right"
-              [routerLink]="['/servicios/blog/:keyword']">#KeyWord</button>
-            <div class="description-text my-auto text-center text-lg-left">
-              <h4>Post 1</h4>
-              <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius esse iure quaerat beatae,
-                laborum fugiat culpa. Molestiae eum et molestias, cupiditate dolor dolorum deserunt nulla voluptatibus
-                provident. Numquam, rem molestiae. <a class="font-weight-bold green-text" [routerLink]="['/servicios/blog/post/:tituloPost']">Leer mas</a></p>
-              <hr class="d-none d-lg-block mb-0 ml-0">
-            </div>
+    <div class="row justify-content-center no-gutters mb-5 mb-lg-0 rowheight"
+      *ngFor="let post of arrBlogsNuevos; let par = even; let impar = odd">
+      <div class="col-lg-6">
+        <img class="img-fluid image" [src]="post.imagen_2" alt="imagen post">
+      </div>
+      <div [ngClass]="{'col-lg-6': true, 'order-lg-first':impar, 'order-lg-last':par }">
+        <div class="bg-green text-center">
+          <button
+            [ngClass]="{'btn bg-white rounded text-success p-2 mt-2': true, 'mr-2 float-right':par, 'ml-2 float-left':impar }"
+            [routerLink]="['/servicios/blog/categoria', categoria.id]" *ngFor= "let categoria of post.categorias">#{{categoria.name}}</button>
+          <div [ngClass]="{'description-text my-auto text-center': true, 'text-lg-left':par, 'text-lg-right':impar}">
+            <h4>{{post.title}}</h4>
+            <p class="mb-0">{{post.description}} </p>
+            <a class="font-weight-bold green-text" [routerLink]="['/servicios/blog/post', post.id]">Leer mas</a>
+            <hr class="d-none d-lg-block mb-0 ml-0">
           </div>
         </div>
       </div>
-  
-      <div class="row justify-content-center no-gutters">
-        <div class="col-lg-6">
-          <img class="img-fluid" src="../../../assets/images/g-shutterbug.jpg" alt="imagen 2">
-        </div>
-        <div class="col-lg-6 order-lg-first">
-          <div class="bg-green text-center ">
-            <button class="btn bg-white rounded text-success p-2 mt-2 ml-2 float-left"
-              [routerLink]="['/servicios/blog/:keyword']">#KeyWord</button>
-  
-            <div class="description-text my-auto text-center text-lg-right">
-              <h4 class="">Post 2</h4>
-              <p class="mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate soluta maiores hic
-                laudantium fugit, amet eligendi esse accusamus harum laboriosam? Nesciunt iusto debitis cupiditate eum a
-                delectus, provident laboriosam eaque? <a class="font-weight-bold green-text" [routerLink]="['/servicios/blog/post/:tituloPost']">Leer mas</a></p>
-              <hr class="d-none d-lg-block mb-0 mr-0 right">
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-        <div class="col-lg-6">
-          <img class="img-fluid" src="../../../assets/images/g-minimalismo.jpg" alt="imagen 1">
-        </div>
-        <div class="col-lg-6">
-          <div class="bg-green text-center">
-            <button class="btn bg-white rounded text-success p-2 mt-2 mr-2 float-right"
-              [routerLink]="['/servicios/blog/:keyword']">#KeyWord</button>
-            <div class="description-text my-auto text-center text-lg-left">
-              <h4>Post 3</h4>
-              <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius esse iure quaerat beatae,
-                laborum fugiat culpa. Molestiae eum et molestias, cupiditate dolor dolorum deserunt nulla voluptatibus
-                provident. Numquam, rem molestiae. <a class="font-weight-bold green-text" [routerLink]="['/servicios/blog/post/:tituloPost']">Leer mas</a></p>
-              <hr class="d-none d-lg-block mb-0 ml-0">
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="row mt-4">
-        <nav class="mx-auto">
-          <ul class="pagination">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">Anteriores</a>
-            </li>
-            <li class="page-item active ">
-              <a class="page-link number" href="#">1 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item "><a class="page-link number" href="#">2</a></li>
-            <li class="page-item "><a class="page-link number" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">Siguiente</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-  
     </div>
+  </div>
 </div>

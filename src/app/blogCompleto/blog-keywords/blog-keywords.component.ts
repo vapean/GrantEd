@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogService } from 'src/app/blog.service';
+
 
 @Component({
   selector: 'blog-keywords',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogKeywordsComponent implements OnInit {
 
-  constructor() { }
+  arrCategorias: any
+
+  constructor(private blogService: BlogService) {
+  }
 
   ngOnInit() {
+    this.blogService.getAllCategorias().subscribe(res => {
+      this.arrCategorias = res
+    })
   }
 
 }

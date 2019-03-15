@@ -32,6 +32,8 @@ import { MainBlogComponent } from "./MainCompleto/main-blog/main-blog.component"
 import { MainQuienesSomosComponent } from './MainCompleto/main-quienes-somos/main-quienes-somos.component';
 import { BlogKeywordsComponent } from './blogCompleto/blog-keywords/blog-keywords.component';
 
+
+// importaciones extra
 import { AngularFontAwesomeModule } from "angular-font-awesome";
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ErrorComponent } from './error/error.component'
@@ -39,12 +41,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 
 
+// angular material
 import { NgxPopper } from 'angular-popper';
 import { MatStepperModule } from '@angular/material/stepper'; 
 import {MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatIconModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+// import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+
+// firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage'
+import { environment } from 'src/environments/environment';
 
 
 
@@ -98,8 +106,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatProgressSpinnerModule,
-    MatSelectModule
+    // MatProgressSpinnerModule,
+    MatSelectModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
 
   ],
   providers: [],

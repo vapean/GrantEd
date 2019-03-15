@@ -7,10 +7,36 @@
 }
 
 .image {
-    width: 70%;
-    height: auto;
+    width: 8em;
+    height: 8em ;
     border-radius: 50%;
     text-align: center
+}
+
+
+.custom-file-label::after {
+display:none
+}
+
+
+
+
+.custom-file-label {
+  /* position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  height: calc(2.25rem + 2px);
+  padding: .375rem .75rem;
+  font-weight: 400;
+  line-height: 1.5; */
+  color:white;
+  background-color: chartreuse;
+  border: 1px solid chartreuse;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em ;
 }
 
 

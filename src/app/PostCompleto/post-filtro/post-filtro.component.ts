@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BlogService } from 'src/app/blog.service';
 
 @Component({
   selector: 'post-filtro',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostFiltroComponent implements OnInit {
 
-  constructor() { }
+  post: any
 
-  ngOnInit() {
+  constructor(private activatedRoute: ActivatedRoute, private blogService: BlogService, ) {
+    this.activatedRoute.params.subscribe(params => {
+      this.blogService.getPostById(params.idPost).subscribe(res => {
+        // console.log(res[0])
+        this.post = res
+      })
+    })
   }
 
+  ngOnInit() {
+   
+  }
+
+  
 }
