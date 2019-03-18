@@ -9,7 +9,7 @@ import { BlogComponent } from './blogCompleto/blog/blog.component';
 import { UsuarioComponent } from './UsuarioCompleto/usuario/usuario.component';
 import { PostComponent } from './PostCompleto/post/post.component';
 import { ErrorComponent } from './error/error.component';
-import { RegistroComponent } from './UsuarioCompleto/registro/registro.component';
+import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { BlogMainComponent } from './blogCompleto/blog-main/blog-main.component';
 

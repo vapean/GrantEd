@@ -11,18 +11,20 @@
 .green {
     background-color: rgba(67, 247, 67, 0.24)
 }
-.btn-success{
+
+.btn-success {
     background-color: rgb(3, 206, 3);
     border: rgb(3, 206, 3)
-  }
-.green-text{
+}
+
+.green-text {
     color: rgb(3, 206, 3)
 }
-.green-text:hover{
+
+.green-text:hover {
     color: rgb(3, 66, 3);
     text-decoration: none
 }
-
 
 .blue {
     background-color: rgb(1, 1, 56)
@@ -81,8 +83,48 @@ cite, .blockquote-footer {
     width: 100%
 }
 
-@media (max-width: 767.98px){
+.error {
+    font-size: 0.75rem;
+    color: grey;
+    font-weight: 300 !important
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+@media (max-width: 767.98px) {
     html {
         hyphens: auto !important;
-            }
+    }
+}
+
+/* CARGA */
+
+body {
+    background: #0d161f;
+}
+
+#circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+}
+
+.loader {
+    width: calc(100% - 0px);
+    height: calc(100% - 0px);
+    border: 8px solid #162534;
+    border-top: 8px solid #09f;
+    border-radius: 50%;
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
 }

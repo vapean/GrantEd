@@ -1,82 +1,96 @@
-<div class="row my-4">
-  <div class="col-12 mx-auto">
+<div class="container my-5">
 
-   
-    <div class="row">
+  <div class="border green mb-4 px-5 py-4">
+    <h3 class="login-heading font-weight-bold text-center">Area de usuario</h3>
+    <hr>
 
-      <div class="w-100 px-4">
+    <form novalidate [formGroup]="formUpdate" (ngSubmit)="manejarUpdate()" *ngIf="formUpdate?.value">
 
-        <form novalidate [formGroup]="formUpdate" (ngSubmit)="manejarUpdate()" *ngIf="formUpdate">
-            <div class="row">
-                <div class="col-4 mx-auto">
-                  <div class="mx-auto ">
-                    <img  [src]="urlImagen" class="image" onerror="if (this.src != 'error.jpg') this.src = '../../../assets/images/blog.jpg'">
-                    <!-- <img *ngIf='userUpload' class="image" [src]="downloadURL | async"/> -->
-                  </div>
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="image" (change)="onChangeImagen($event)">
-                    <label class="custom-file-label" for="inputGroupFile01">+</label>
-                  </div>
-                 
-                  <p>
-                    {{uploadPercent | async}}
-                  </p>
-                </div>
+      <div class="row">
+        <div class="col-2 d-flex align-items-center">
+          <div class="row">
+            <div class="contenedor">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="image" (change)="onChangeImagen($event)">
+                <label class="custom-file-label" for="inputGroupFile01">+</label>
               </div>
+              <img [src]="urlImagen" class="image mx-auto"
+                onerror="if (this.src != 'error.jpg') this.src = '../../../assets/images/blog.jpg'">
+            </div>
 
-          <div class="row mb-3 mt-5">
-            <div class="col-md-12 col-lg-6 pr-5">
+            <div class="progress mb-4" *ngIf="uploadPercent">
+              <div class="progress-bar" role="progressbar" [ngStyle]="{'width.%': width}">{{width}}%</div>
+            </div>
+      
+
+            <button [ngClass]="{'botonReactivo btn btn-lg btn-primary btn-block text-uppercase':true}" [disabled]="formUpdate.invalid" type="submit"
+              data-toggle="modal" data-target="#exampleModalCenter">
+              Guardar </button>
+            <p class="error" *ngIf="formUpdate.invalid">
+              Parece que has olvidado completar alguno de los campos marcados con *
+            </p>
+            <button class="btn btn-lg btn-danger btn-block text-uppercase " type="submit" (click)='userExit()'> Salir
+            </button>
+          </div>
+
+
+
+        </div>
+        <div class="col-10">
+
+          <div class="row">
+
+
+            <div class="col-6 px-5">
               <div class="form-label-group">
                 <label>¿Cómo te llamas?*</label>
-               
+
                 <input class="form-control" name="name" id="name" type="text" placeholder="Introduce tu nombre"
                   autofocus formControlName='name' [value]="usuario.name">
 
-                <p *ngIf="formUpdate.controls['name'].errors?.required && formUpdate.controls['name'].dirty">
-                  Necesitamos un nombre para poder recordarte
+                <p class="error"
+                  *ngIf="formUpdate.controls['name'].errors?.required && formUpdate.controls['name'].dirty">
+                  ¿Te imaginas un mundo sin identidades? Necesito un nombre para poder recordarte
                 </p>
-
-                <p *ngIf="formUpdate.controls['name'].errors?.maxlength && formUpdate.controls['name'].dirty">
+                <p class="error"
+                  *ngIf="formUpdate.controls['name'].errors?.maxlength && formUpdate.controls['name'].dirty">
                   El campo nombre tiene un tamaño maximo de
-                  {{formUpdate.controls['nombre'].errors.maxlength.requiredLength}}
-                  caracteres y has escrito {{formUpdate.controls['nombre'].errors.maxlength.actualLength}}
+                  {{formUpdate.controls['name'].errors.maxlength.requiredLength}}
+                  caracteres y has escrito {{formUpdate.controls['name'].errors.maxlength.actualLength}}
                   caracteres
                 </p>
               </div>
-            </div>
-            <div class="col-md-12 col-lg-6 pl-5">
+
               <div class="form-label-group">
                 <label for="inputSurname">¿Cuál es tu apellido?*</label>
                 <input class="form-control" name="surname" id="surname" placeholder="Introduce tu apellido" type="text"
                   formControlName='surname'>
 
-                <p *ngIf="formUpdate.controls['surname'].errors?.required && formUpdate.controls['surname'].dirty">
-                  Necesitamos un apellido para poder recordarte
+                <p class="error"
+                  *ngIf="formUpdate.controls['surname'].errors?.required && formUpdate.controls['surname'].dirty">
+                  Seguro que no eres la única persona en el mundo con ese nombre... ¿Cómo te apellidas?
                 </p>
 
-                <p *ngIf="formUpdate.controls['surname'].errors?.maxlength && formUpdate.controls['surname'].dirty">
+                <p class="error"
+                  *ngIf="formUpdate.controls['surname'].errors?.maxlength && formUpdate.controls['surname'].dirty">
                   El campo apellido tiene un tamaño maximo de
                   {{formUpdate.controls['surname'].errors.maxlength.requiredLength}}
                   caracteres y has escrito {{formUpdate.controls['surname'].errors.maxlength.actualLength}}
                   caracteres
                 </p>
               </div>
-            </div>
-          </div>
 
-
-          <div class="row mb-3">
-            <div class="col-md-12 col-lg-6 pr-5">
               <div class="form-label-group">
                 <label for="inputUsername">¿Con que nombre quieres que te llamemos?*</label>
                 <input class="form-control" name="username" id="username" placeholder="Introduce tu nombre de usuario"
                   type="text" formControlName='username'>
 
-                <p *ngIf="formUpdate.controls['username'].errors?.required && formUpdate.controls['username'].dirty">
-                  Necesitamos que nos digas con que nombre referirnos a ti
+                <p class="error"
+                  *ngIf="formUpdate.controls['username'].errors?.required && formUpdate.controls['username'].dirty">
+                  Para mi eres inolvidable... por favor dime con que nombre recordarte
                 </p>
-
-                <p *ngIf="formUpdate.controls['username'].errors?.maxlength && formUpdate.controls['username'].dirty">
+                <p class="error"
+                  *ngIf="formUpdate.controls['username'].errors?.maxlength && formUpdate.controls['username'].dirty">
                   EL campo usuario tiene un tamaño maximo de
                   {{formUpdate.controls['username'].errors.maxlength.requiredLength}}
                   caracteres y has escrito {{formUpdate.controls['username'].errors.maxlength.actualLength}}
@@ -84,179 +98,80 @@
                 </p>
               </div>
 
-            </div>
-            <div class="col-md-12 col-lg-6 pl-5">
               <div class="form-label-group">
                 <label for="inputEmail">¿En que email podemos contactarte?* </label>
                 <input type="email" class="form-control" id="mail" name="mail" placeholder="¡Prometemos no enviar
-                span!" formControlName='mail'>
-                <p *ngIf="formUpdate.controls['mail'].errors?.required && formUpdate.controls['mail'].dirty">
-                  Necesitamos un email en el que poder enviarte las mejores novedades </p>
-                <p *ngIf="formUpdate.controls['mail'].errors?.pattern && formUpdate.controls['mail'].dirty">
-                  El campo email debe tener el formato correcto
+                                span!" formControlName='mail'>
+                <p class="error"
+                  *ngIf="formUpdate.controls['mail'].errors?.required && formUpdate.controls['mail'].dirty">
+                  ¿Y si algún día tengo algo importante que decir? Dime en donde puedo contactarte </p>
+                <p class="error"
+                  *ngIf="formUpdate.controls['mail'].errors?.pattern && formUpdate.controls['mail'].dirty">
+                  Eso no me suena a un email válido... revísalo por favor
                 </p>
               </div>
-            </div>
-          </div>
 
 
-
-          
-
-          <div class="row mb-3">
-            <div class="col-md-12 col-lg-6 pr-5">
               <div class="form-label-group">
                 <label>¿Qué edad tienes?</label>
                 <input type="text" name="age" id="age" class="form-control" formControlName='age'>
-                <p *ngIf="formUpdate.controls['age'].errors?.age && formUpdate.controls['age'].dirty">
+                <p class="error" *ngIf="formUpdate.controls['age'].errors?.age && formUpdate.controls['age'].dirty">
                   {{formUpdate.controls['age'].errors?.age}}
                 </p>
               </div>
-            </div>
-            <div class="col-md-12 col-lg-6 pl-5 ">
-              <mat-form-field>
-                <mat-select placeholder="Genero" formControlName="gender" [(ngModel)]="usuario.gender" multiple>
-                  <mat-option *ngFor="let gender of arrGenders" [value]="gender">{{gender}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-
-            
 
             </div>
-          </div>
+            <div class="col-6 px-5">
+              <div class="row">
+                <mat-form-field class="col-12 mb-4">
+                   <mat-select placeholder="Genero" formControlName="gender" multiple>
+                    <mat-option *ngFor="let gender of arrGenders" [value]="gender">{{gender}}
+                    </mat-option>
+                  </mat-select> 
+                </mat-form-field>
+
+                <mat-form-field class="col-12 mb-4">
+                  <mat-select placeholder="Area de estudios" formControlName="study_field" multiple>
+                    <mat-option *ngFor="let field of arrFields" [value]="field.toLowerCase()">{{field}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="col-12 mb-4">
+                  <mat-select placeholder="Tipo de estudios" formControlName="study_level" multiple>
+                    <mat-option *ngFor="let level of arrLevels" [value]="level.toLowerCase()">{{level}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
 
 
+                <mat-form-field class="col-12 mb-4">
+                  <mat-select placeholder="Pais de origen" formControlName="country_origin"multiple>
+                    <mat-option *ngFor="let country of arrCountries" [value]="country.nombre.toLowerCase()">{{country.nombre}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
 
-          <h3 class="login-heading mb-3 font-weight-bold text-center">Solo unos datos mas para ¡poder ofrecerte la
-            mejor selección</h3>
+                <mat-form-field class="col-12 mb-4">
+                  <mat-select placeholder="Pais de destino" formControlName="country_destination" multiple>
+                    <mat-option *ngFor="let country of arrCountries" [value]="country.nombre.toLowerCase()">{{country.nombre}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
 
-          <hr>
-
-
-
-          <div class="row mb-3 mt-5">
-            <div class="col-md-12 col-lg-6 pr-5">
-              <mat-form-field>
-                <mat-select placeholder="Area de estudios" formControlName="study_field"
-                  [(ngModel)]="usuario.study_field" multiple>
-                  <mat-option *ngFor="let field of arrFields" [value]="field.toLowerCase()">{{field}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-
-
-           
-            </div>
-
-            <div class="col-md-12 col-lg-6 pl-5 ">
-
-              <mat-form-field>
-                <mat-select placeholder="Tipo de estudios" formControlName="study_level"
-                  [(ngModel)]="usuario.study_level" multiple>
-                  <mat-option *ngFor="let level of arrLevels" [value]="level">{{level}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-
-           
             </div>
           </div>
-
-
-
-          <div class="row mb-3">
-            <div class="col-md-12 col-lg-6 pr-5">
-
-              <mat-form-field>
-                <mat-select placeholder="Pais de origen" formControlName="country_origin"
-                  [(ngModel)]="usuario.country_origin" multiple>
-                  <mat-option *ngFor="let country of arrCountries" [value]="country.iso2">{{country.nombre}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-
-             
-            </div>
-
-            <div class="col-md-12 col-lg-6 pl-5">
-              <mat-form-field>
-                <mat-select placeholder="Pais de destino" formControlName="country_destination"
-                  [(ngModel)]="usuario.country_destination" multiple>
-                  <mat-option *ngFor="let country of arrCountries" [value]="country.iso2">{{country.nombre}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-          </div>
-
-
-
-          <div class="row mb-3">
-
-
-            <div class="col-md-12 col-lg-6 pr-5 hide" [ngClass]="{'mostrar': comprobacionPais}">
-
-              <mat-form-field>
-                <mat-select placeholder="Provincia de origen" formControlName="province_origin"
-                  [(ngModel)]="usuario.province_origin" multiple>
-                  <mat-option *ngFor="let province of arrProvinces" [value]="province">{{province}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-
-
-
-            
-            </div>
-
-            <div class="col-md-12 col-lg-6 pl-5 hide" [ngClass]="{'mostrar': comprobacionPais}">
-
-
-              <mat-select placeholder="Provincia de destino" formControlName="province_destination"
-                [(ngModel)]="usuario.province_destination" multiple>
-                <mat-option *ngFor="let province of arrProvinces" [value]="province">{{province}}
-                </mat-option>
-              </mat-select>
-
-           
-            </div>
-
-
-
-          </div>
-       
-
-          <div class="row mb-3">
-            <div class="col-4 mx-auto">
-              <button class=" botonReactivo btn btn-lg btn-primary btn-block text-uppercase"
-                [ngClass]="{'button-disabled': formUpdate.invalid}" [disabled]="formUpdate.invalid"  type="submit"
-                data-toggle="modal" data-target="#exampleModalCenter">
-                Modificar </button>
-                <!-- [disabled]="formUpdate.invalid" -->
-            </div>
-          </div>
-
-        </form>
-
+        </div>
       </div>
-
-
-    </div>
-
-    <usuario-becas></usuario-becas>
-
-
-
-    <div class="row mt-5">
-      <div class="col-4 mx-auto">
-        <button class="btn btn-lg btn-danger btn-block text-uppercase " type="submit" (click)='userExit()'> Salir
-        </button>
-      </div>
-    </div>
+    </form>
 
   </div>
+  <usuario-becas></usuario-becas>
 </div>
+
+
+
 
 
 <!-- ----------modal------------- -->
@@ -266,7 +181,7 @@
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-   
+
       <div class="modal-body">
         {{result}}
       </div>

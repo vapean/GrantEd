@@ -3,25 +3,39 @@
     <h3>Comentarios</h3>
 
     <div class="row border p-3" *ngFor="let comment of arrComments">
-      <div class="col-md-2 col-12 d-flex align-items-center">
+      <div class="col-2 d-flex align-items-center">
         <div class="image mx-auto ">
           <img [src]="comment.image" alt="card image">
         </div>
 
       </div>
 
-      <div class="col-md-10 col-12">
-        <p> <strong>{{comment.name}}</strong> <small class="float-right">{{comment.date | date: "dd/MM/y H:m" }} <button class="btn btn-elimimar" (click)="borrarComentario(comment?.id)" *ngIf="comment.token == tokenUsuario">-</button></small></p>
-        <p>{{comment.text}}</p>
+      <div class="col-8">
+        <div class="row">
+          <p><strong>{{comment.name}}</strong> </p>
+        </div>
+        <div class="row">
+          <p>{{comment.text}}</p>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="row">
+          <p><small class="float-right">{{comment.date | date: "dd/MM/y H:m" }}</small></p>
+        </div>
+        <div class="row">
+          <p><small class="float-right"><button class="btn btn-danger" (click)="borrarComentario(comment?.id)"
+              *ngIf="comment.token == tokenUsuario"><i class="fa fa-trash"></i></button></small></p>
+        </div>
       </div>
     </div>
 
     <form novalidate [formGroup]="formComment" (ngSubmit)="manejarComentarios()">
-      <div class="form-group">
-        <label for="comment">Añadir comentario</label>
+      <div class="form-group mt-3">
+        <p class="font-weight-bold">Añadir comentario</p>
         <textarea class="form-control" rows="5" id="comment" formControlName='comment'>Hola, soy una prueba</textarea>
         <button class="btn btn-success" type="submit">Enviar</button>
-        <p *ngIf="!tokenUsuario">Solo los usuarios registrados pueden comentar... pero no te llevará más de 5 min <strong><a [routerLink]="['/registro']">¡Regístrate!</a></strong> </p>
+        <p *ngIf="!tokenUsuario">Solo los usuarios registrados pueden comentar... pero no te llevará más de 5 min
+          <strong><a [routerLink]="['/registro']">¡Regístrate!</a></strong> </p>
       </div>
     </form>
 

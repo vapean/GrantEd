@@ -1,58 +1,60 @@
 <header class=" sticky-top">
-    <nav class="layout navbar navbar-expand-xl navbar-dark">
-        <a class="navbar-brand" [routerLink]="['/home']"><img src="../../assets/images/favicon.png" alt="Logo Granted"></a>
-        <div class="middle"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></div>
-        <button class="navbar-toggler btn btn-outline-warning" type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        
-      
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item pl-xl-4">
-              <a class="nav-link" [routerLink]="['/main']">Inicio</a>
-            </li>
-            <li class="nav-item pl-xl-5">
-              <a class="nav-link " [routerLink]="['/comofunciona']">¿Cómo Funciona?</a>
-            </li>
-            <li class="nav-item dropdown pl-xl-5">
-              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                Servicios
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" [routerLink]="['servicios/buscador']">Buscador de Becas</a>
-                <hr class="dropdown-divider">
-                <a class="dropdown-item" [routerLink]="['servicios/blog']">Blog</a>
-              </div>
-            </li>
-      
-            <li class="nav-item pl-xl-5">
-              <a class="nav-link" [routerLink]="['/contacto']">Contactanos</a>
-            </li>
-          </ul>
-      
-      
-          <ul class="navbar-nav ml-auto mr-4 borderGreen mr-3" *ngIf="!usuariosService.usuarioLogado()">
-            <li class="nav-item hover">
-              <a class="nav-link enphasis" [routerLink]="['/registro']">Regístrate</a>
-            </li>
-      
-      
-            <li class="nav-item hover">
-                <a class="nav-link enphasis"[routerLink]="['/login']">Accede</a>
-              </li>
-      
-          </ul>
-          <ul class="navbar-nav ml-auto mr-4 borderGreen mr-3" *ngIf="usuariosService.usuarioLogado()">
-            <li class="nav-item hover">
-              <a class="nav-link enphasis" [routerLink]="['/usuario']">Usuario</a>
-            </li>
-          </ul>
-      
-      
-        </div>
-      </nav>
+  <nav class="layout navbar navbar-expand-xl navbar-dark">
+    <a class="navbar-brand" [routerLink]="['/home']"><img src="../../assets/images/favicon.png" alt="Logo Granted"></a>
+    <div class="middle"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></div>
+    <button class="navbar-toggler btn btn-outline-warning" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item pl-xl-4">
+          <a class="nav-link" routerLinkActive="active-link" [routerLink]="['/main']">Inicio</a>
+        </li>
+        <li class="nav-item pl-xl-5">
+          <a class="nav-link " routerLinkActive="active-link" [routerLink]="['/comofunciona']">¿Cómo Funciona?</a>
+        </li>
+        <li class="nav-item dropdown pl-xl-5">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Servicios
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" [routerLink]="['servicios/buscador']" routerLinkActive="active-link-nb">Buscador de Becas</a>
+            <hr class="dropdown-divider">
+            <a class="dropdown-item" [routerLink]="['servicios/blog']" routerLinkActive="active-link-nb">Blog</a>
+          </div>
+        </li>
+
+        <li class="nav-item pl-xl-5">
+          <a class="nav-link" routerLinkActive="active-link" routerLinkActive="active-link"
+            [routerLink]="['/contacto']">Contactanos</a>
+        </li>
+      </ul>
+
+
+      <ul class="navbar-nav ml-auto mr-4 borderGreen mr-3" *ngIf="!usuariosService.usuarioLogado()">
+        <li class="nav-item hover" routerLinkActive="active-link-enphasis">
+          <a class="nav-link enphasis" routerLinkActive="active-link-enphasis"
+            [routerLink]="['/registro']">Regístrate</a>
+        </li>
+
+
+        <li class="nav-item hover" routerLinkActive="active-link-enphasis">
+          <a class="nav-link enphasis" routerLinkActive="active-link-enphasis" [routerLink]="['/login']">Accede</a>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav ml-auto mr-4 borderGreen mr-3" *ngIf="usuariosService.usuarioLogado()">
+        <li class="nav-item hover" routerLinkActive="active-link-enphasis">
+          <a class="nav-link enphasis" routerLinkActive="active-link-enphasis" [routerLink]="['/usuario']">Usuario</a>
+        </li>
+      </ul>
+
+
+    </div>
+  </nav>
 </header>

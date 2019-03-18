@@ -55,7 +55,7 @@
   width: 30vw
 }
 
-.btn-google {
+/* .btn-google {
   color: white;
   background-color: #ea4335;
 }
@@ -63,7 +63,7 @@
 .btn-facebook {
   color: white;
   background-color: #3b5998;
-}
+} */
 
 /* -----------Estilos del validado-------------- */
 
@@ -75,19 +75,14 @@ input.ng-valid.ng-dirty {
   border: 2px solid green;
 }
 
-.button-disabled {
-  background: red
-}
 
 .botonReactivo {
   background: #007bff;
 }
 
-p {
-  font-size: 0.75rem;
-  color: grey;
+p{
+  font-weight: 400
 }
-
 
 .hide{
   display: none

@@ -46,6 +46,7 @@ input.ng-valid.ng-dirty{
 .button-disabled{
   background-color: red !important
 }
+
 .botonReactivo{
   background-color: rgb(3, 206, 3);
   border: rgb(3, 206, 3);

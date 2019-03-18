@@ -2,69 +2,37 @@
 img{
     max-width: 4em;
 }
-.nav-link{
-    border: 2px solid transparent;
-    padding: 1em;
-    transition: 400ms
-}
-.navbar{
-    padding: 0em 1em 0em 1em;
-    margin: 0em !important
-}
-#navbarNav{
-    margin: 0em 0em 0em 5em !important
-}
-.nav-link:hover {
-    color:  rgb(3, 206, 3) !important;
-    border-bottom: 2px solid rgb(3, 206, 3);
-}
-.btn-outline-warning{
-    transition: 400ms
+
+a{
+    font-weight: 400;
 }
 
-.btn-outline-warning:hover {
-    background-color: rgb(3, 206, 3);;
-    border-color:rgba(255, 255, 255, 0.5);
-}
-
-.navbar-toggler {
-    color:  rgb(3, 206, 3);
-    border: 2px solid rgb(3, 206, 3)
-}
-
-.enphasis{
-    display: inline-block;
-    color:  rgb(3, 206, 3) !important;
-    font-weight: 500;
-    width: 100%;
-    text-align: center;
-
-
-}
-
-.enphasis:hover{
-    color: #222225 !important;
-}
-
-.hover{
-    padding: 0em 1.5em;
-    width: 9em
-}
-.hover:hover{
-    background: rgb(3, 206, 3);
-
-
+i{
+    margin: 0 1em
 }
 
 .borderGreen{
     border-left: 2px solid rgb(3, 206, 3);
     border-right: 2px solid rgb(3, 206, 3)
-
-
 }
 
-a{
-    font-weight: 400;
+.navbar{
+    padding: 0em 1em 0em 1em;
+    margin: 0em !important
+}
+
+#navbarNav{
+    margin: 0em 0em 0em 5em !important
+}
+
+.nav-link{
+    border: 2px solid transparent;
+    padding: 1em;
+    transition: 400ms
+}
+.nav-link:hover {
+    color:  rgb(3, 206, 3) !important;
+    border-bottom: 2px solid rgb(3, 206, 3);
 }
 
 .dropdown-menu {
@@ -81,15 +49,68 @@ a{
     background-color: inherit;
 }
 
+.navbar-toggler {
+    color:  rgb(3, 206, 3);
+    border: 2px solid rgb(3, 206, 3)
+}
+
+.enphasis{
+    display: inline-block;
+    color:  rgb(3, 206, 3) !important;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+}
+
+.enphasis:hover{
+    color: #222225 !important;
+}
+
+.hover{
+    padding: 0em 1.5em;
+    width: 9em
+}
+
+.hover:hover{
+    background: rgb(3, 206, 3);
+    color: #222225 !important;
+}
+
+
+/* Movil */
+
+.btn-outline-warning{
+    transition: 400ms
+}
+
+.btn-outline-warning:hover {
+    background-color: rgb(3, 206, 3);;
+    border-color:rgba(255, 255, 255, 0.5);
+}
 .middle{
     color: rgb(3, 206, 3) ;
     font-size: 0.8em;
     display: none
 }
 
-i{
-    margin: 0 1em
+/* Routerlink Active */
+
+.active-link{
+    color:  rgb(3, 206, 3) !important;
+    border-bottom: 2px solid rgb(3, 206, 3);
 }
+
+.active-link-enphasis{
+    color: #222225 !important;
+    background: rgb(3, 206, 3);
+}
+
+.active-link-nb{
+    color:  rgb(3, 206, 3) !important;
+}
+
+
+
 
 @media(max-width: 1200px) {
   .middle{

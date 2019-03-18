@@ -1,9 +1,9 @@
 
 .card {
-    background-color: rgba(67, 247, 67, 0.24);
+    /* background-color: rgba(67, 247, 67, 0.24); */
     border: 0;
     border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5); */
     overflow: hidden;
   }
 .carousel-control-next, .carousel-control-prev {
@@ -13,6 +13,12 @@
 .carousel-item{
     padding: 2vw 10vw
 
+}
+.carousel-control-next-icon {
+    background-image: url(/assets/images/icons8-back-arrow-64\ copia.png) !important;
+}
+.carousel-control-prev-icon {
+    background-image: url(/assets/images/icons8-back-arrow-64.png) !important;
 }
 
 span{

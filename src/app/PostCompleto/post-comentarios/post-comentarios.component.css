@@ -22,16 +22,10 @@ img{
     border-radius: 50%
 }
 
-.btn-elimimar{
-
-    background-color: red;
-    border-radius: 50%;
-    width: 1em;
-    height: 1em;
-    margin: 0em;
-    padding: 0em;
-    line-height: 1em;
-
+.btn-danger {
+    color: #fff;
+    background-color: #dc3546d3;
+    border-color: #dc3546d3;
 }
 
 @media (max-width: 991.98px){

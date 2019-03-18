@@ -3,8 +3,32 @@
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.137);
     overflow: hidden;
-  }
+}
 
-  button{
-      font-size: 1.1em
-  }
+button {
+    font-size: 1.1em
+}
+
+.text1 {
+    color: #4cd137
+}
+
+.text2 {
+    color: #718093
+}
+
+.text3 {
+    color: #8c7ae6
+}
+
+.text4{
+    color: #fbc531
+}
+
+.text5{
+    color: #e84118
+}
+
+.text6{
+    color: #273c75
+}

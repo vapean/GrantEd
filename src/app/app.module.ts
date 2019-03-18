@@ -12,7 +12,7 @@ import { BuscadorComponent } from "./buscador/buscador.component";
 import { ResultadosComponent } from "./buscador/resultados/resultados.component";
 import { BlogComponent } from "./blogCompleto/blog/blog.component";
 import { PostComponent } from "./PostCompleto/post/post.component";
-import { RegistroComponent } from "./UsuarioCompleto/registro/registro.component";
+import { RegistroComponent } from "./registro/registro.component";
 import { UsuarioComponent } from "./UsuarioCompleto/usuario/usuario.component";
 import { PostComentariosComponent } from "./PostCompleto/post-comentarios/post-comentarios.component";
 import { PostFiltroComponent } from "./PostCompleto/post-filtro/post-filtro.component";

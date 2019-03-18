@@ -14,47 +14,47 @@
         <hr class="mb-3">
 
         <form class="form-signin px-md-5" novalidate [formGroup]="formLogin" (ngSubmit)="manejarLogin()">
-          <div class="form-label-group">
-            <label for="inputUserame">Usuario</label>
+          <div class="form-label-group mt-5">
+            <p for="inputUserame">Usuario</p>
             <input type="text" id="inputUserame" class="form-control" placeholder="Usuario" required autofocus
               formControlName='username'>
-            <p *ngIf="formLogin.controls['username'].errors?.required && formLogin.controls['username'].dirty">
-              Necesitamos tu nombre de usuario
+            <p class="error" *ngIf="formLogin.controls['username'].errors?.required && formLogin.controls['username'].dirty">
+              Por favor, recuérdame tu nombre para poder recuperar tus datos
             </p>
-            <p *ngIf="formLogin.controls['username'].errors?.maxlength && formLogin.controls['username'].dirty">
-              El campo usuario tiene un tamaño maximo de
+            <p class="error" *ngIf="formLogin.controls['username'].errors?.maxlength && formLogin.controls['username'].dirty">
+              Ups... El campo usuario tiene un tamaño maximo de
               {{formLogin.controls['username'].errors.maxlength.requiredLength}} caracteres y has introducido
               {{formLogin.controls['username'].errors.maxlength.actualLength}} caracteres
             </p>
           </div>
 
           <div class="form-label-group">
-            <label for="inputPassword">Contraseña</label>
+            <p for="inputPassword">Contraseña</p>
             <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required
               formControlName='password'>
-              <p *ngIf="formLogin.controls['password'].errors?.required && formLogin.controls['password'].dirty">
-                  Necesitamos tu contraseña
+              <p class="error" *ngIf="formLogin.controls['password'].errors?.required && formLogin.controls['password'].dirty">
+                  Necesito tu contraseña para poder recuperar tus datos
                 </p>
-            <p *ngIf="formLogin.controls['password'].errors?.pattern && formLogin.controls['password'].dirty">
-              La contraseña ha de contener al menos un numero y una letra y de 6 a 15 caracterers
+            <p class="error" *ngIf="formLogin.controls['password'].errors?.pattern && formLogin.controls['password'].dirty">
+              Recuerda que la contraseña contenía al menos un número y una letra y de 6 a 15 caracterers
             </p>
           </div>
 
+          <hr class="my-4">
 
-          <button class="btn btn-lg btn-primary btn-block text-uppercase mt-4 botonReactivo" type="submit" type="submit"[ngClass]="{'button-disabled': formLogin.invalid}" [disabled]="formLogin.invalid" data-toggle="modal" data-target="#exampleModalCenter"> Accede </button>
+          <button class="btn btn-lg btn-primary btn-block text-uppercase mt-5 botonReactivo" type="submit" type="submit"[ngClass]="{'button-disabled': formLogin.invalid}" [disabled]="formLogin.invalid" data-toggle="modal" data-target="#exampleModalCenter"> Accede </button>
 
           <div class="text-center">
             <a class="small" href="#">¿Olvidaste la contraseña?</a>
           </div>
 
 
-          <hr class="my-4">
 
-          <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fa fa-google "></i>
+          <!-- <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fa fa-google "></i>
             Accede con Google</button>
           <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
               class="fa fa-facebook-f "></i>
-            Accede con Facebook</button>
+            Accede con Facebook</button> -->
         </form>
       </div>
     </div>
@@ -71,12 +71,6 @@
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <!-- <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> -->
       <div class="modal-body">
         {{result}}
       </div>

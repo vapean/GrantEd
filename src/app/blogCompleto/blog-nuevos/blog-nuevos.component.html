@@ -17,12 +17,15 @@
         <div class="bg-green text-center">
           <button
             [ngClass]="{'btn bg-white rounded text-success p-2 mt-2': true, 'mr-2 float-right':par, 'ml-2 float-left':impar }"
-            [routerLink]="['/servicios/blog/categoria', categoria.id]" *ngFor= "let categoria of post.categorias">#{{categoria.name}}</button>
+            [routerLink]="['/servicios/blog/categoria', categoria.id]"
+            *ngFor="let categoria of post.categorias">#{{categoria.name}}</button>
           <div [ngClass]="{'description-text my-auto text-center': true, 'text-lg-left':par, 'text-lg-right':impar}">
             <h4>{{post.title}}</h4>
             <p class="mb-0">{{post.description}} </p>
             <a class="font-weight-bold green-text" [routerLink]="['/servicios/blog/post', post.id]">Leer mas</a>
-            <hr class="d-none d-lg-block mb-0 ml-0">
+            <div [ngClass]="{'d-flex': true, 'justify-content-end':impar, 'justify-content-start':par}">
+              <hr class="d-none d-lg-block mb-0 ml-0 mr-0">
+            </div>
           </div>
         </div>
       </div>

@@ -18,6 +18,7 @@ export class MainBlogComponent implements OnInit {
   ngOnInit() {
     this.blogService.getImportantes().subscribe(res => {
       this.arrBlogsImportantes = res
+      console.log(res)
     })
 
   }

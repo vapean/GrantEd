@@ -11,13 +11,13 @@
             <form novalidate [formGroup]="formRegistro" (ngSubmit)="manejarFormulario()">
 
 
-              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval= "false">
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
 
                     <h3 class="login-heading mb-3 font-weight-bold text-center">Bienvenido al inicio de tu nueva vida
                     </h3>
-                    <hr>
+                    <hr class="mb-5">
 
                     <div class="row mb-3 mt-5">
                       <div class="col-md-12 col-lg-6 pr-5">
@@ -30,14 +30,14 @@
                           <input class="form-control" name="name" id="name" type="text"
                             placeholder="Introduce tu nombre" autofocus formControlName='name'>
                           <p
-                            *ngIf="formRegistro.controls['name'].errors?.required && formRegistro.controls['name'].dirty">
-                            Necesitamos un nombre para poder recordarte
+                            class="error" *ngIf="formRegistro.controls['name'].errors?.required && formRegistro.controls['name'].dirty">
+                            ¿Te imaginas un mundo sin identidades? Necesito un nombre para poder recordarte
                           </p>
                           <p
-                            *ngIf="formRegistro.controls['name'].errors?.maxlength && formRegistro.controls['name'].dirty">
+                            class="error" *ngIf="formRegistro.controls['name'].errors?.maxlength && formRegistro.controls['name'].dirty">
                             El campo nombre tiene un tamaño maximo de
-                            {{formRegistro.controls['nombre'].errors.maxlength.requiredLength}}
-                            caracteres y has escrito {{formRegistro.controls['nombre'].errors.maxlength.actualLength}}
+                            {{formRegistro.controls['name'].errors.maxlength.requiredLength}}
+                            caracteres y has escrito {{formRegistro.controls['name'].errors.maxlength.actualLength}}
                             caracteres
                           </p>
                         </div>
@@ -50,12 +50,12 @@
                             type="text" formControlName='surname'>
 
                           <p
-                            *ngIf="formRegistro.controls['surname'].errors?.required && formRegistro.controls['surname'].dirty">
-                            Necesitamos un apellido para poder recordarte
+                            class="error" *ngIf="formRegistro.controls['surname'].errors?.required && formRegistro.controls['surname'].dirty">
+                            Seguro que no eres la única persona en el mundo con ese nombre... ¿Cómo te apellidas?
                           </p>
 
                           <p
-                            *ngIf="formRegistro.controls['surname'].errors?.maxlength && formRegistro.controls['surname'].dirty">
+                            class="error" *ngIf="formRegistro.controls['surname'].errors?.maxlength && formRegistro.controls['surname'].dirty">
                             El campo apellido tiene un tamaño maximo de
                             {{formRegistro.controls['surname'].errors.maxlength.requiredLength}}
                             caracteres y has escrito {{formRegistro.controls['surname'].errors.maxlength.actualLength}}
@@ -69,15 +69,15 @@
                     <div class="row mb-3">
                       <div class="col-md-12 col-lg-6 pr-5">
                         <div class="form-label-group">
-                          <label for="inputUsername">¿Con que nombre quieres que te llamemos?*</label>
+                          <label for="inputUsername">¿Con qué nombre quieres que te llame?*</label>
                           <input class="form-control" name="username" id="username"
                             placeholder="Introduce tu nombre de usuario" type="text" formControlName='username'>
                           <p
-                            *ngIf="formRegistro.controls['username'].errors?.required && formRegistro.controls['username'].dirty">
-                            Necesitamos que nos digas con que nombre referirnos a ti
+                            class="error" *ngIf="formRegistro.controls['username'].errors?.required && formRegistro.controls['username'].dirty">
+                            Para mi eres inolvidable... por favor dime con que nombre recordarte
                           </p>
                           <p
-                            *ngIf="formRegistro.controls['username'].errors?.maxlength && formRegistro.controls['username'].dirty">
+                            class="error" *ngIf="formRegistro.controls['username'].errors?.maxlength && formRegistro.controls['username'].dirty">
                             EL campo usuario tiene un tamaño maximo de
                             {{formRegistro.controls['username'].errors.maxlength.requiredLength}}
                             caracteres y has escrito {{formRegistro.controls['username'].errors.maxlength.actualLength}}
@@ -88,15 +88,15 @@
                       </div>
                       <div class="col-md-12 col-lg-6 pl-5">
                         <div class="form-label-group">
-                          <label for="inputEmail">¿En que email podemos contactarte?* </label>
+                          <label for="inputEmail">¿En qué email puedo contactarte?* </label>
                           <input type="email" class="form-control" id="mail" name="mail"
-                            placeholder="¡Prometemos no enviar span!" formControlName='mail'>
+                            placeholder="¡Prometo no enviar span!" formControlName='mail'>
                           <p
-                            *ngIf="formRegistro.controls['mail'].errors?.required && formRegistro.controls['mail'].dirty">
-                            Necesitamos un email en el que poder enviarte las mejores novedades </p>
+                            class="error" *ngIf="formRegistro.controls['mail'].errors?.required && formRegistro.controls['mail'].dirty">
+                            ¿Y si algún día tengo algo importante que decir? Dime en donde puedo contactarte </p>
                           <p
-                            *ngIf="formRegistro.controls['mail'].errors?.pattern && formRegistro.controls['mail'].dirty">
-                            El campo email debe tener el formato correcto
+                            class="error" *ngIf="formRegistro.controls['mail'].errors?.pattern && formRegistro.controls['mail'].dirty">
+                            Eso no me suena a un email válido... revísalo por favor
                           </p>
                         </div>
                       </div>
@@ -111,10 +111,9 @@
                           <input type="password" class="form-control" name="password" id="password"
                             placeholder="Introduce tu contraseña" formControlName='password'>
                           <p
-                            *ngIf="formRegistro.controls['password'].errors?.pattern && formRegistro.controls['password'].dirty">
-                            Para mayor seguridad la contraseña tiene que tenes al menos 6 caracteres y contener al menos
-                            un
-                            numero y una letra
+                            class="error" *ngIf="formRegistro.controls['password'].errors?.pattern && formRegistro.controls['password'].dirty">
+                            Para mayor seguridad la contraseña te recomiendo al menos 6 y 15 caracteres con 1 numero y 1
+                            letra
                           </p>
                         </div>
                       </div>
@@ -124,7 +123,7 @@
                           <label>Repite la contraseña para doble seguridad*</label>
                           <input type="password" class="form-control" name="r-password" id="r-password"
                             placeholder="Repite tu contraseña" formControlName='password_repeat'>
-                          <p *ngIf="formRegistro.errors?.repeatpassword ">
+                          <p class="error" *ngIf="formRegistro.errors?.repeatpassword">
                             {{formRegistro.errors.repeatpassword}}
                           </p>
                         </div>
@@ -140,7 +139,7 @@
 
                     <div class="row mb-3">
                       <div class="col-md-12 col-lg-6 pr-5 ">
-                        <label>¿Cual es tu género?</label>
+                        <label>¿Cuál es tu género?</label>
                         <select class="selectpicker" name="gender" formControlName='gender' id="gender"
                           title="Selecciona tu sexo">
                           <option value="male">Hombre</option>
@@ -150,7 +149,7 @@
                       </div>
 
                       <div class="col-md-12 col-lg-6 pl-5">
-                        <button class="btn btn-block btn-success" href="#carouselExampleControls" role="button"
+                        <button class="btn btn-block btn-success mt-4" href="#carouselExampleControls" role="button"
                           data-slide="next">
                           Adelante
                         </button>
@@ -161,17 +160,17 @@
 
                   <div class="carousel-item">
 
-                    <h3 class="login-heading mb-3 font-weight-bold text-center">Solo unos datos mas para ¡poder
+                    <h3 class="login-heading mb-3 font-weight-bold text-center">Sólo unos datos mas para ¡poder
                       ofrecerte la
-                      mejor selección</h3>
-                    <hr>
+                      mejor selección de becas</h3>
+                    <hr class="mb-5">
 
                     <div class="row mb-3">
                       <div class="col-md-12 col-lg-6 pr-5">
                         <div class="form-label-group">
                           <label>¿Qué edad tienes?</label>
                           <input type="text" name="age" id="age" class="form-control" formControlName='age'>
-                          <p *ngIf="formRegistro.controls['age'].errors?.age && formRegistro.controls['age'].dirty">
+                          <p class="error" *ngIf="formRegistro.controls['age'].errors?.age && formRegistro.controls['age'].dirty">
                             {{formRegistro.controls['age'].errors?.age}}
                           </p>
                         </div>
@@ -179,7 +178,7 @@
 
                       <div class="col-md-12 col-lg-6 pl-5 ">
                         <div class="form-label-group">
-                          <label>¿Cuando quieres empezar?</label>
+                          <label>¿Cuándo quieres empezar?</label>
                           <select class="selectpicker" name="date" formControlName='date' id="date"
                             title="Selecciona el semestre" multiple>
                             <option id="date_primer" value="primer">Primer semestre</option>
@@ -194,7 +193,7 @@
                     <div class="row mb-3 mb-3">
                       <div class="col-md-12 col-lg-6 pr-5">
                         <div class="form-label-group">
-                          <label>¿ Que área de estudio te interesa?</label>
+                          <label>¿Qué área de estudio te interesa?</label>
                           <select class="selectpicker" name="study_field" formControlName='study_field' id="study_field"
                             data-live-search="true" title="Elige todas los que te quieras" data-size="5"
                             data-actions-box="true" multiple>
@@ -205,11 +204,11 @@
 
                       <div class="col-md-12 col-lg-6 pl-5 ">
                         <div class="form-label-group">
-                          <label> ¿Que tipo de curso quieres estudiar?</label>
+                          <label> ¿Qué tipo de curso quieres estudiar?</label>
                           <select class="selectpicker" name="study_level" formControlName='study_level' id="study_level"
                             data-live-search="true" title="Elige tantos como te interesen" data-size="5"
                             data-actions-box="true" multiple>
-                            <option [value]="level" *ngFor="let level of arrLevels">{{level}}</option>
+                            <option [value]="level.toLowerCase()" *ngFor="let level of arrLevels">{{level}}</option>
                           </select>
                         </div>
                       </div>
@@ -220,11 +219,11 @@
                     <div class="row mb-3">
                       <div class="col-md-12 col-lg-6 pr-5">
                         <div class="form-label-group">
-                          <label> ¿De que país eres?*</label>
-                          <select class="selectpicker" name="country_origin" formControlName='country_origin' id=""
+                          <label> ¿De qué país eres?*</label>
+                          <select class="selectpicker" name="country_origin" formControlName='country_origin' id="country_origin"
                             data-live-search="true" title="Selecciona tu nacionalidad" data-size="5"
                             (change)="comprobarEspana($event)">
-                            <option [value]="country.iso2" *ngFor="let country of arrCountries">{{country.nombre}}
+                            <option [value]="country.nombre.toLowerCase()" *ngFor="let country of arrCountries">{{country.nombre}}
                             </option>
                           </select>
                         </div>
@@ -232,12 +231,12 @@
 
                       <div class="col-md-12 col-lg-6 pl-5">
                         <div class="form-label-group">
-                          <label> ¿En que pais quieres disfrutar tu beca?</label>
+                          <label> ¿En qué pais quieres disfrutar tu beca?</label>
                           <select class="selectpicker" name="country_destination" formControlName='country_destination'
                             id="country_destination" data-live-search="true"
                             title="Selecciona todos los que te interesen" data-size="5" data-actions-box="true"
                             multiple>
-                            <option [value]="country.iso2" *ngFor="let country of arrCountries">{{country.nombre}}
+                            <option [value]="country.nombre.toLowerCase()" *ngFor="let country of arrCountries">{{country.nombre}}
                             </option>
                           </select>
                         </div>
@@ -245,8 +244,8 @@
                     </div>
 
 
-
-                    <div class="row mb-3">
+                    <!-- Provincias (pendiente de implementar) -->
+                    <!-- <div class="row mb-3">
                       <div class="col-md-12 col-lg-6 pr-5 hide" [ngClass]="{'mostrar': comprobacionPais}">
                         <div class="form-label-group">
                           <label> ¿De provincia eres? * (Sólo España)</label>
@@ -268,7 +267,7 @@
                           </select>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
 
 
 
@@ -276,7 +275,7 @@
                       <div class="col-md-12 col-lg-6 pr-5">
                         <button class="btn btn-block btn-secondary" href="#carouselExampleControls" role="button"
                           data-slide="prev">
-                          Atras
+                          Atrás
                         </button>
                       </div>
 
@@ -285,6 +284,11 @@
                           type="submit" [ngClass]="{'button-disabled': formRegistro.invalid}"
                           [disabled]="formRegistro.invalid" data-toggle="modal"
                           data-target="#exampleModalCenter">Regístrate</button>
+                        <p
+                          class="error" *ngIf="formRegistro.invalid" >
+                          Parece que has olvidado completar alguno de los campos marcados con *
+                        </p>
+
                       </div>
                     </div>
                   </div>

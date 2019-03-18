@@ -1,120 +1,250 @@
-body {
-  margin: 50px 0;
-}
+/* @import url("https://fonts.googleapis.com/css?family=Dosis:300,400,700,800"); */
 
-.ticker-headline {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  padding: 15px 0;
-  margin: 0;
-  font-size: 18px;
-}
-
-.carousel.vertical .carousel-inner {
-  height: 100%;
-  width: auto;
-}
-.carousel.vertical .carousel-inner > .item {
-  width: auto;
-  padding-right: 50px;
-  transition: 0.6s ease-in-out top;
-}
-@media all and (transform-3d), (-webkit-transform-3d) {
-  .carousel.vertical .carousel-inner > .item {
-    transition: 0.6s ease-in-out;
-  }
-  .carousel.vertical .carousel-inner > .item.next, .carousel.vertical .carousel-inner > .item.active.right {
-    transform: translate3d(0, 100%, 0);
-    top: 0;
-  }
-  .carousel.vertical .carousel-inner > .item.prev, .carousel.vertical .carousel-inner > .item.active.left {
-    transform: translate3d(0, -100%, 0);
-    top: 0;
-  }
-  .carousel.vertical .carousel-inner > .item.next.left, .carousel.vertical .carousel-inner > .item.prev.right, .carousel.vertical .carousel-inner > .item.active {
-    transform: translate3d(0, 0, 0);
-    top: 0;
-  }
-}
-.carousel.vertical .carousel-inner > .active,
-.carousel.vertical .carousel-inner > .next,
-.carousel.vertical .carousel-inner > .prev {
-  display: block;
-}
-.carousel.vertical .carousel-inner > .active {
-  top: 0;
-}
-.carousel.vertical .carousel-inner > .next,
-.carousel.vertical .carousel-inner > .prev {
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.carousel.vertical .carousel-inner > .next {
-  top: 100%;
-}
-.carousel.vertical .carousel-inner > .prev {
-  top: -100%;
-}
-.carousel.vertical .carousel-inner > .next.left,
-.carousel.vertical .carousel-inner > .prev.right {
-  top: 0;
-}
-.carousel.vertical .carousel-inner > .active.left {
-  top: -100%;
-}
-.carousel.vertical .carousel-inner > .active.right {
-  top: 100%;
-}
-
-.carousel.vertical .carousel-control {
-  left: auto;
-  width: 50px;
-}
-.carousel.vertical .carousel-control.up {
-  top: 0;
-  right: 0;
-  bottom: 50%;
-}
-.carousel.vertical .carousel-control.down {
-  top: 50%;
+:host {
+  position: fixed;
+  left: 0;
   right: 0;
   bottom: 0;
+  top: 0;
+  z-index: 1100;
+  background: #24344c;
 }
-.carousel.vertical .carousel-control .icon-prev,
-.carousel.vertical .carousel-control .icon-next,
-.carousel.vertical .carousel-control .glyphicon-chevron-up,
-.carousel.vertical .carousel-control .glyphicon-chevron-down {
-  position: absolute;
-  top: 50%;
-  z-index: 5;
+
+.st0 {
+  fill: none;
+}
+
+.st1 {
+  fill: #504E55;
+}
+
+.st2 {
+  fill: #F39E72;
+}
+
+.st3 {
+  fill: #FFFFFF;
+}
+
+.st4 {
+  opacity: 0.24;
+}
+
+.st5 {
+  fill: #77574E;
+}
+
+.st6 {
+  fill: #FBD68D;
+}
+
+.st7 {
+  fill: #ECECEC;
+}
+
+.st8 {
+  fill: #F4A89C;
+}
+
+.st9 {
+  fill: #CFC9E5;
+}
+
+.st10 {
+  opacity: 0.28;
+}
+
+.st11 {
+  opacity: 0.25;
+}
+
+.st12 {
+  fill: #6F635C;
+}
+
+.st13 {
+  fill: #DAE7BE;
+}
+
+.st14 {
+  fill: #FFE0A6;
+}
+
+.st15 {
+  fill: #5F5E60;
+}
+
+.st16 {
+  fill: #CFE1AF;
+}
+
+.st17 {
+  fill: #EBE9F5;
+}
+
+.st18 {
+  fill: #53515A;
+}
+
+.st19 {
+  opacity: 0.42;
+}
+
+.st20 {
+  fill: #53515B;
+}
+
+/** Styles for the 403 Page **/
+
+.particle-error, .permission_denied, #particles-js {
+  width: 100%;
+  height: 100%;
+  margin: 0px !important;
+}
+
+#particles-js {
+  position: fixed !important;
+  opacity: 0.23;
+}
+
+.permission_denied {
+  background: #24344c !important;
+}
+
+.permission_denied a {
+  text-decoration: none;
+}
+
+.denied__wrapper {
+  max-width: 390px;
+  width: 100%;
+  height: 390px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 2vh;
+}
+
+.permission_denied h1 {
+  text-align: center;
+  color: rgb(3, 206, 3) !important;
+  /* font-family: "Dosis", sans-serif; */
+  font-size: 5em;
+  margin-bottom: 0px;
+  font-weight: 800;
+}
+
+.permission_denied h3, .permission_denied p {
+  text-align: center;
+  color: rgb(3, 206, 3) !important;
+  font-size: 1em;
+  line-height: 23px;
+  max-width: 340px;
+  margin: 0px auto 0px auto;
+  /* font-family: "Dosis", sans-serif; */
+  font-weight: 400;
+}
+
+.permission_denied h3 span {
+  position: relative;
+  width: 65px;
   display: inline-block;
 }
-.carousel.vertical .carousel-control .icon-prev,
-.carousel.vertical .carousel-control .glyphicon-chevron-up {
-  left: 50%;
-  margin-left: -10px;
-  top: 50%;
-  margin-top: -10px;
+
+.permission_denied h3 span:after {
+  content: "";
+  border-bottom: 3px solid #fff;
+  position: absolute;
+  left: 0;
+  top: 43%;
+  width: 100%;
 }
-.carousel.vertical .carousel-control .icon-next,
-.carousel.vertical .carousel-control .glyphicon-chevron-down {
-  left: 50%;
-  margin-left: -10px;
-  top: 50%;
-  margin-top: -10px;
+
+.denied__link {
+  background: none;
+  color: #fff;
+  padding: 12px 0px 10px 0px;
+  border: 1px solid #fff;
+  outline: none;
+  border-radius: 7px;
+  width: 150px;
+  font-size: 1em;
+  text-align: center;
+  margin: 0 auto;
+  vertical-align: middle;
+  display: block;
+  margin-bottom: 40px;
+  margin-top: 0px;
+  /* font-family: "Dosis", sans-serif; */
+  font-weight: 400;
 }
-.carousel.vertical .carousel-control .icon-up,
-.carousel.vertical .carousel-control .icon-down {
-  width: 20px;
-  height: 20px;
-  line-height: 1;
-  font-family: serif;
+
+.denied__link:hover {
+  color: rgb(3, 206, 3);
+  border-color: rgb(3, 206, 3);
+  cursor: pointer;
+  opacity: 1;
 }
-.carousel.vertical .carousel-control .icon-prev:before {
-  content: "‹";
+
+.permission_denied .stars {
+  animation: sparkle 1.6s infinite ease-in-out alternate;
 }
-.carousel.vertical .carousel-control .icon-next:before {
-  content: "›";
+
+@keyframes sparkle {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+#astronaut {
+  width: 43px;
+  position: absolute;
+  right: 20px;
+  top: 210px;
+  animation: spin 4.5s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .permission_denied h1 {
+    font-size: 75px;
+  }
+  .permission_denied h3 {
+    font-size: 16px;
+    width: 200px;
+    margin: 0 auto;
+    line-height: 23px;
+  }
+  .permission_denied h3 span {
+    width: 60px;
+  }
+  #astronaut {
+    width: 35px;
+    right: 40px;
+    top: 170px;
+  }
+}
+
+.saturn, .saturn-2, .hover {
+  animation: hover 2s infinite ease-in-out alternate;
+}
+
+@keyframes hover {
+  0% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(-3px);
+  }
 }
