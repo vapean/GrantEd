@@ -35,7 +35,8 @@
           <div class="col-md-12 col-lg-6 pr-5">
             <mat-form-field>
               <mat-select placeholder="Pais de origen" formControlName="country_origin" multiple>
-                <mat-option *ngFor="let countryH of arrCountriesHispanos" [value]="countryH.nombre.toLowerCase()">{{countryH.nombre}}
+                <mat-option *ngFor="let countryH of arrCountriesHispanos" [value]="countryH.nombre.toLowerCase()">
+                  {{countryH.nombre}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -44,7 +45,8 @@
           <div class="col-md-12 col-lg-6 pl-5">
             <mat-form-field>
               <mat-select placeholder="Pais de destino" formControlName="country_destination" multiple>
-                <mat-option *ngFor="let country of arrCountries" [value]="country.nombre.toLowerCase()">{{country.nombre}}
+                <mat-option *ngFor="let country of arrCountries" [value]="country.nombre.toLowerCase()">
+                  {{country.nombre}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -64,7 +66,7 @@
     </div>
   </div>
 
- 
+
 
   <!-- RESULTADOS -->
 
@@ -72,15 +74,32 @@
     <h3 class="login-heading mb-3 font-weight-bold text-center">Becas disponibles</h3>
     <hr>
 
-    <div class="row">
-      <div [ngClass]="{'col-5 card card-signin p-0 mb-4 cursor':true, 'offset-2':impar}"
-        *ngFor="let beca of arrBecas; let par = even; let impar = odd;" data-toggle="modal"
-        data-target="#idModal" (click)="manejarBecaSelecionada(beca)">
+    <div class="row" *ngIf="noBecas">
+      <div class="mx-auto">
+        <p class="text-center">
+          Ups... No he encontrado ninguna beca con los criterios seleccionados...
+          Disponemos de más de 1000 becas pero no somos perfectos (aún).
+        </p>
+        <p class="text-center">
+          Te invito a seleccionar otros parámetros que puedan gustarte o a <a
+            [routerLink]="['/contacto']">contactarnos</a> con tus sugerencias y en breve nos pondremos en ello.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="row" *ngIf="!noBecas">
+      <div [ngClass]="{'col-5 card card-signin p-0 mb-4':true, 'offset-2':impar}"
+        *ngFor="let beca of arrBecas; let par = even; let impar = odd;">
 
         <div class="card-header">
-          <h5 class="card-title">{{beca.title}}</h5>
+          <i class="fa fa-heart cursor" *ngIf="beca?.isFavorite" (click)="deleteBecaFav(beca)" data-dismiss="modal"></i>
+          <i class="fa fa-heart-o cursor" *ngIf="!beca?.isFavorite" (click)="addBecaFav(beca)" data-dismiss="modal"></i>
+          <h5 class="card-title">
+            {{beca.title}}
+          </h5>
         </div>
-        <div class="card-body">
+        <div class="card-body cursor" data-toggle="modal" data-target="#idModal" (click)="manejarBecaSelecionada(beca)">
           <h5 class="card-title">{{beca.semestre}}</h5>
           <p class="card-text" [innerHTML]="beca.description"></p>
         </div>
@@ -89,26 +108,33 @@
   </div>
 
 
- <!-- Modal -->
- <div class="modal fade" id="idModal" tabindex="-1" role="dialog"
- aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       <h5 class="modal-title" id="exampleModalLongTitle">{{becaSeleccionada?.title}}</h5>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
-       <p [innerHTML]="becaSeleccionada?.description"></p>
-     </div>
-     <div class="modal-footer">
-       <button type="button" class="btn btn-success" data-dismiss="modal">Compartir link</button>
-       <a target="_blank" [href]="becaSeleccionada?.url"><button type="button" class="btn btn-primary"> Ir a la beca</button></a>
-     </div>
-   </div>
- </div>
-</div>
-<!-- fin del modal -->
-  
+  <!-- Modal -->
+  <div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            <i class="fa fa-heart cursor" *ngIf="becaSeleccionada?.isFavorite" (click)="deleteBecaFav(becaSeleccionada)"
+              data-dismiss="modal"></i>
+            <i class="fa fa-heart-o cursor" *ngIf="!becaSeleccionada?.isFavorite" (click)="addBecaFav(becaSeleccionada)"
+              data-dismiss="modal"></i>
+            {{becaSeleccionada?.title}}
+          </h5>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p [innerHTML]="becaSeleccionada?.description"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Compartir link</button>
+          <a target="_blank" [href]="becaSeleccionada?.url"><button type="button" class="btn btn-primary"> Ir a la
+              beca</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin del modal -->

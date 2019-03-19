@@ -28,6 +28,12 @@ img{
     border-color: #dc3546d3;
 }
 
+.like{
+    width: 2em;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+    margin-left: 5px
+}
 @media (max-width: 991.98px){
     img{
         width: 30%;

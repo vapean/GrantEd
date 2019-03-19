@@ -55,8 +55,8 @@
   }
   
   p {
-  font-size: 0.75rem;
-  color: grey;
+  font-size: 0.9rem !important;
+  font-weight: 400  
   }
   
   

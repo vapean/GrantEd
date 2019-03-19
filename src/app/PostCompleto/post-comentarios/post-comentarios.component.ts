@@ -14,13 +14,14 @@ export class PostComentariosComponent implements OnInit {
   formComment: FormGroup;
   fk_blog: number
   tokenUsuario: string
+  likes: number
 
 
   constructor(private activatedRoute: ActivatedRoute, private blogService: BlogService) {
+    this.likes=0
     this.activatedRoute.params.subscribe(params => {
       this.blogService.getPostById(params.idPost).subscribe(res => {
         this.arrComments = res["comentarios"]
-        // console.log(res["comentarios"])
         this.fk_blog = params.idPost
       })
     })
@@ -51,10 +52,16 @@ export class PostComentariosComponent implements OnInit {
       this.activatedRoute.params.subscribe(params => {
         this.blogService.getPostById(params.idPost).subscribe(res => {
           this.arrComments = res["comentarios"]
-          // console.log(res["comentarios"])
           this.fk_blog = params.idPost
         })
       })
+    })
+  }
+
+
+  likeComment(comment) {
+    comment.likes += 1
+    this.blogService.likeComment(comment.likes, comment.id).subscribe(res => {
     })
   }
 

@@ -10,7 +10,19 @@ export class BecasService {
     this.url = "http://localhost:3000/api/becas"
   }
 
-  obtenerBecas(filtros) {
-    return this.httpClient.post(`${this.url}`, {'date': filtros.date, 'typology': filtros.typology,'country_origin': filtros.country_origin, 'province_origin': filtros.province_origin, 'country_destination': filtros.country_destination, 'province_destination': filtros.province_destination, 'study_field': filtros.study_field, 'study_level': filtros.study_level})
+  obtenerBecas(filtro) {
+    return this.httpClient.post(`${this.url}`, { 'date': filtro.date, 'typology': filtro.typology, 'country_origin': filtro.country_origin, 'province_origin': filtro.province_origin, 'country_destination': filtro.country_destination, 'province_destination': filtro.province_destination, 'study_field': filtro.study_field, 'study_level': filtro.study_level, 'token': localStorage.getItem('token') })
+  }
+
+  addBecasFav(fk_becas, token) {
+    return this.httpClient.post(`${this.url}/fav`, { 'fk_becas': fk_becas, 'token': token })
+  }
+
+  deleteBecasFav(fk_becas, token) {
+    return this.httpClient.post(`${this.url}/unfav`, { 'fk_becas': fk_becas, 'token': token })
+  }
+
+  getBecasFavUsuario(token) {
+    return this.httpClient.post(`${this.url}/usuario`, { 'token': token })
   }
 }

@@ -24,26 +24,19 @@ export class BuscadorComponent {
   arrBecas: any
   becaSeleccionada: any
   // arrProvinces: string[]
-  comprobacionPais: boolean
   result: string
-  // comprobacionResultado: boolean
   usuario: any
   busqueda: boolean
-  
+  noBecas: boolean;
 
   // firebase
   uploadPercent: Observable<number>
   downloadURL: Observable<string>
   urlImagen: string
 
-
-
-
-
   constructor(private usuarioService: UsuariosService, private becasService: BecasService) {
     this.result = ""
     this.usuario = {}
-    this.comprobacionPais = true
     this.arrCountries = this.usuarioService.obtenerPaises()
     this.arrCountriesHispanos= this.usuarioService.obtenerPaisesHispanos()
     // this.arrProvinces = ['A Coruña', 'Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz', 'Baleares', 'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba', 'Cuenca', 'Girona', 'Granada', 'Guadalajara', 'Gipuzkoa', 'Huelva', 'Huesca', 'Jaén', 'La Rioja', 'Las Palmas', 'León', 'Lérida', 'Lugo', 'Madrid', 'Málaga', 'Murcia', 'Navarra', 'Ourense', 'Palencia', 'Pontevedra', 'Salamanca', 'Segovia', 'Sevilla', 'Soria', 'Tarragona', 'Santa Cruz de Tenerife', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza']
@@ -51,7 +44,6 @@ export class BuscadorComponent {
     this.arrFields = this.usuarioService.obtenerCampos()
     this.busqueda= false
   }
-
 
   ngOnInit() {
     this.loadForm()
@@ -61,8 +53,6 @@ export class BuscadorComponent {
     if (localStorage.getItem('token')) {
       let res = this.usuarioService.getUser({ 'token': localStorage.getItem('token') }).subscribe(res => {
         this.usuario = res[0]
-
-
         this.formBuscador = new FormGroup(
           {
             study_field: new FormControl(this.usuario.study_field.split(",")),
@@ -88,46 +78,41 @@ export class BuscadorComponent {
         },
       );
     }
-    // comprobarEspana(pais) {
-    //   this.comprobacionPais = pais.target.value == ["ES"]
-    //   return this.comprobacionPais
-    // }
   }
+
   manejarBuscador() {
-    console.log(this.formBuscador.value)
-
-    if (this.formBuscador.value.study_field.length > 0) {
-      // this.formBuscador.value.study_field = this.formBuscador.value.study_field.join(',')
-    }
-    if (this.formBuscador.value.study_level.length > 0) {
-      // this.formBuscador.value.study_level = this.formBuscador.value.study_level.join(',')
-    }
-    if (this.formBuscador.value.country_origin.length > 0) {
-     
-    }
-    if (this.formBuscador.value.country_destination.length > 0) {
-      // this.formBuscador.value.country_destination = this.formBuscador.value.country_destination.join(',')
-    }
-    // if (this.formBuscador.value.province_origin.length > 0) {
-    //   this.formBuscador.value.province_origin = this.formBuscador.value.province_origin.join(',')
-    // }
-    // if (this.formBuscador.value.province_destination.length > 0) {
-    //   this.formBuscador.value.province_destination = this.formBuscador.value.province_destination.join(',')
-    // }
-
-    console.log(this.formBuscador.value)
-
-    //OJO
+    // console.log(this.formBuscador.value)
     this.becasService.obtenerBecas(this.formBuscador.value).subscribe(res => {
-      console.log(res)
-      this.arrBecas= res
+      this.arrBecas = res
+      if (this.arrBecas.length>0) {
+        this.noBecas= false
+      }
+      else {
+        this.noBecas= true
+      }
     });
-
     this.busqueda= true
-
   }
 
   manejarBecaSelecionada(beca){
-    this.becaSeleccionada= beca
-}
+    this.becaSeleccionada = beca
+
+  }
+
+  addBecaFav(beca) {
+    this.becasService.addBecasFav(beca.id, localStorage.getItem('token')).subscribe(res => {
+      this.becasService.obtenerBecas(this.formBuscador.value).subscribe(res => {
+        this.arrBecas = res
+      });
+    })
+  }
+
+  deleteBecaFav(beca) {  
+    this.becasService.deleteBecasFav(beca.id, localStorage.getItem('token')).subscribe(res => {
+      this.becasService.obtenerBecas(this.formBuscador.value).subscribe(res => {
+        this.arrBecas = res
+      });        
+    })
+  }
+  
 }

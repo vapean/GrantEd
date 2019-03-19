@@ -23,8 +23,15 @@
           <p><small class="float-right">{{comment.date | date: "dd/MM/y H:m" }}</small></p>
         </div>
         <div class="row">
-          <p><small class="float-right"><button class="btn btn-danger" (click)="borrarComentario(comment?.id)"
-              *ngIf="comment.token == tokenUsuario"><i class="fa fa-trash"></i></button></small></p>
+          <small class="float-right">
+            <button class="btn btn-danger" (click)="borrarComentario(comment?.id)"
+              *ngIf="comment.token == tokenUsuario"><i class="fa fa-trash"></i>
+            </button>
+            <button class="btn btn-info" (click)="likeComment(comment)">
+              <i class="fa fa-heart"></i>
+          </button>
+          <input class="like" type="text" [value]="comment.likes">
+          </small>
         </div>
       </div>
     </div>

@@ -41,6 +41,10 @@ export class BlogService {
     return this.httpClient.post(`${this.urlComment}/delete`, {'id': id})
   }
 
+  likeComment(likes, id) {
+    console.log('MARIO', likes, id)
+    return this.httpClient.post(`${this.urlComment}/like`, {'likes':likes,'id': id})
+  }
 
   //Categorias
   getAllCategorias() {

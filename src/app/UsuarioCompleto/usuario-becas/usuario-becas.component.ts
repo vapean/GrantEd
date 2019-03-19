@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BecasService } from 'src/app/becas.service';
 
 @Component({
   selector: 'usuario-becas',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioBecasComponent implements OnInit {
 
-  constructor() { }
+  arrBecasUsuario: any
+  becaSeleccionada: AnalyserOptions
+  constructor(private becasService: BecasService) { }
 
   ngOnInit() {
+    console.log(localStorage.getItem('token'))
+    this.becasService.getBecasFavUsuario(localStorage.getItem('token')).subscribe(res => {
+      console.log(res)
+      this.arrBecasUsuario= res
+    })
+  }
+
+
+  manejarBecaSelecionada(beca){
+    this.becaSeleccionada = beca
+
+  }
+
+
+  deleteBecaFav(beca) {  
+    this.becasService.deleteBecasFav(beca.id, localStorage.getItem('token')).subscribe(res => {
+      this.becasService.getBecasFavUsuario(localStorage.getItem('token')).subscribe(res => {
+        this.arrBecasUsuario = res
+      });        
+    })
   }
 
 }
