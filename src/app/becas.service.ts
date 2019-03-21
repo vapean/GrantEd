@@ -25,4 +25,8 @@ export class BecasService {
   getBecasFavUsuario(token) {
     return this.httpClient.post(`${this.url}/usuario`, { 'token': token })
   }
+
+  getBecaById(beca_id) {
+    return this.httpClient.post(`${this.url}/id`, { 'beca_id': beca_id})
+  }
 }

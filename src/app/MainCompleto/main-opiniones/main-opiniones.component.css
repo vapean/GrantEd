@@ -24,5 +24,17 @@
 span{
     background-color: rgba(101, 250, 101, 0.651);
     border-radius: 50%;
-
 }
+
+.imageCircle{
+    border-radius: 50%;
+    width: 8em;
+    height: 8em;
+    overflow: hidden;
+}
+
+.imageCircle img{
+    width: 100%;
+    height: auto;
+}
+

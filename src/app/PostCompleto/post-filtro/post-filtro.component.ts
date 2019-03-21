@@ -14,15 +14,11 @@ export class PostFiltroComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private blogService: BlogService, ) {
     this.activatedRoute.params.subscribe(params => {
       this.blogService.getPostById(params.idPost).subscribe(res => {
-        // console.log(res[0])
         this.post = res
       })
     })
   }
 
   ngOnInit() {
-   
   }
-
-  
 }

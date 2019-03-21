@@ -1,21 +1,26 @@
-<div class="container my-5">
+<div class="container mb-5">
 
-  <div class="border green mb-4 px-5 py-4">
-    <h3 class="login-heading font-weight-bold text-center">Area de usuario</h3>
-    <hr>
+  <div class="mb-4 px-5">
+    <div class="row">
+        <div class="sectionTitle">
+          <h2 class="textTitle">Área de Usuario</h2>
+        </div>
+      </div>
+      <hr>
 
     <form novalidate [formGroup]="formUpdate" (ngSubmit)="manejarUpdate()" *ngIf="formUpdate?.value">
 
       <div class="row">
-        <div class="col-2 d-flex align-items-center">
+        <div class="col-2 pt-4">
           <div class="row">
-            <div class="contenedor">
+            <div class="contenedor contenedor-ficha">
+                <img [src]="urlImagen" class="image mx-auto d-block"
+                onerror="if (this.src != 'error.jpg') this.src = '../../../assets/images/imagengranted.jpg'">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="image" (change)="onChangeImagen($event)">
                 <label class="custom-file-label" for="inputGroupFile01">+</label>
               </div>
-              <img [src]="urlImagen" class="image mx-auto"
-                onerror="if (this.src != 'error.jpg') this.src = '../../../assets/images/blog.jpg'">
+              
             </div>
 
             <div class="progress mb-4" *ngIf="uploadPercent">
@@ -35,7 +40,7 @@
 
 
 
-        </div>
+      </div>
         <div class="col-10">
 
           <div class="row">

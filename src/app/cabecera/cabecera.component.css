@@ -1,6 +1,6 @@
 
 img{
-    max-width: 4em;
+    max-width: 6em;
 }
 
 a{
@@ -66,16 +66,17 @@ i{
     color: #222225 !important;
 }
 
-.hover{
-    padding: 0em 1.5em;
-    width: 9em
+.mislis a{
+    display: block;
+    color:  rgb(3, 206, 3);
+    width: 8em;
+    text-align: center
 }
 
-.hover:hover{
-    background: rgb(3, 206, 3);
-    color: #222225 !important;
+.mislis a:hover{
+    background-color: rgb(3, 206, 3);
+    color:rgb(12, 12, 63) !important;
 }
-
 
 /* Movil */
 

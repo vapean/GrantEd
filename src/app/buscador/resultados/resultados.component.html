@@ -1,52 +1,26 @@
-<div class="border green">
-    <h3 class="login-heading mb-3 font-weight-bold text-center">Becas disponibles</h3>
-    <hr>
-
-  <div class="row">
-    <div class="col-5 card card-signin p-0">
-        <div class="card-header">
-            Pais destino
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Nombre beca</h5>
-            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore ea doloribus, iure
-              perferendis illo assumenda fugiat</p>
-          </div>
-    </div>
-    <div class="col-5 offset-2 card card-signin p-0">
-      <div class="card-header">
-        Pais destino
+<div class="container">
+    <div class="row">
+        <div class="sectionTitle">
+          <h2 class="textTitle text-center">{{beca?.title}}</h2>
+        </div>
       </div>
-      <div class="card-body">
-        <h5 class="card-title">Nombre beca</h5>
-        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore ea doloribus, iure
-          perferendis illo assumenda fugiat</p>
+      <hr>
+
+      <div class="row">
+        <div class="col-7 p-4 pr-5">
+          <p [innerHTML]="beca?.description"></p>
+        </div>
+        <div class="col-5 green p-4 overflow-auto">
+          <p class="mb-0 font-weight-bold text-truncate"> <i class="fa fa-globe mr-2"></i><ins>Paises origen</ins></p>
+          <p class="text-capitalize"> {{beca?.country_origin}}</p>
+          <p class="mb-0 font-weight-bold"><i class="fa fa-flag mr-2"></i><ins>Paises destino</ins> </p>
+          <p class="text-capitalize"> {{beca?.country_destination}}</p>
+          <p class="mb-0 font-weight-bold"><i class="fa fa-book mr-2"></i><ins>Campos de estudio</ins></p>
+          <p class="text-capitalize"> {{beca?.study_field}}</p>
+          <p class="mb-0 font-weight-bold"><i class="fa fa-bookmark mr-2"></i><ins>Tipos de estudio</ins></p>
+          <p class="text-capitalize"> {{beca?.study_level}}</p>
+          <p class="mb-0 font-weight-bold"><i class="fa fa-window-maximize mr-2"></i><ins>Url</ins></p>
+          <a  [href]="beca?.url">{{beca?.url}}</a>
+        </div>
       </div>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-5 card card-signin mt-5 p-0">
-        <div class="card-header">
-            Pais destino
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Nombre beca</h5>
-            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore ea doloribus, iure
-              perferendis illo assumenda fugiat</p>
-          </div>
-    </div>
-    <div class="col-5 offset-2 card card-signin mt-5 p-0">
-        <div class="card-header">
-            Pais destino
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Nombre beca</h5>
-            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore ea doloribus, iure
-              perferendis illo assumenda fugiat</p>
-          </div>
-    </div>
-  </div>
-
 </div>

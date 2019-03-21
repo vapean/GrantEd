@@ -88,75 +88,8 @@ export class UsuarioPersonaComponent {
       );
 
       this.urlImagen = this.usuario.image
-      // console.log(this.usuario);
-
-      //this.comprobacionPais = this.usuario.country_origin == "ES"
-      // this.usuario.country_destination = this.usuario.country_destination.split(",")
-      // this.usuario.country_origin = this.usuario.country_origin.split(",")
-      // this.usuario.study_level = this.usuario.study_level.split(",")
-      // this.usuario.study_field = this.usuario.study_field.split(",")
-
-      // this.formUpdate.controls['study_field'].setValue(this.usuario.study_field.split(","))
-      // this.formUpdate.controls['gender'].setValue(this.usuario.gender.split(","))
-      // this.usuario.province_origin = this.usuario.province_origin.split(",")
-      // this.usuario.province_destination = this.usuario.province_destination.split(",")
-      // this.usuario.gender = this.usuario.gender.split(",")
-      // this.usuario.date = this.usuario.date.split(",")
     })
   }
-
-  // async loadForm() {
-  //   let res = await this.usuarioService.getUserP({ 'token': localStorage.getItem('token') })
-
-  //   this.usuario = res[0]
-
-  //   this.urlImagen = this.usuario.image
-  //   // console.log(this.usuario);
-
-  //   this.comprobacionPais = this.usuario.country_origin == "ES"
-  //   this.usuario.country_destination = this.usuario.country_destination.split(",")
-  //   this.usuario.country_origin = this.usuario.country_origin.split(",")
-  //   this.usuario.study_level = this.usuario.study_level.split(",")
-  //   this.usuario.study_field = this.usuario.study_field.split(",")
-  //   // this.usuario.province_origin = this.usuario.province_origin.split(",")
-  //   // this.usuario.province_destination = this.usuario.province_destination.split(",")
-  //   this.usuario.gender = this.usuario.gender.split(",")
-  //   // this.usuario.date = this.usuario.date.split(",")
-
-
-
-  //   this.formUpdate = new FormGroup(
-  //     {
-  //       name: new FormControl(this.usuario.name, [
-  //         Validators.required,
-  //         Validators.maxLength(20)
-  //       ]),
-  //       surname: new FormControl(this.usuario.surname, [
-  //         Validators.required,
-  //         Validators.maxLength(20)
-  //       ]),
-  //       username: new FormControl(this.usuario.username, [
-  //         Validators.required,
-  //         Validators.maxLength(15)
-  //       ]),
-  //       mail: new FormControl(this.usuario.email, [
-  //         Validators.required,
-  //         Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
-  //       ]),
-  //       study_field: new FormControl('', []),
-  //       study_level: new FormControl('', []),
-  //       country_origin: new FormControl('', [
-  //         Validators.required
-  //       ]),
-  //       // province_destination: new FormControl('', []),
-  //       // province_origin: new FormControl('', []),
-  //       country_destination: new FormControl('', []),
-  //       date: new FormControl(this.usuario.date, []),
-  //       gender: new FormControl('', []),
-  //       age: new FormControl(this.usuario.age, [this.ageValidator])
-  //     },
-  //   );
-  // }
 
   onChangeImagen($event) {
     const image = $event.target.files[0]
@@ -185,7 +118,6 @@ export class UsuarioPersonaComponent {
   }
 
 
-
   ageValidator(control) {
     if (isNaN(control.value) == true) {
       return { age: "Debe ser un numero" };
@@ -197,10 +129,7 @@ export class UsuarioPersonaComponent {
   }
 
 
-
-
   manejarUpdate() {
-    console.log(this.formUpdate.value)
 
     if (this.formUpdate.value.study_field.length > 0) {
       this.formUpdate.value.study_field = this.formUpdate.value.study_field.join(',')
@@ -230,7 +159,6 @@ export class UsuarioPersonaComponent {
       this.result = res['mensaje']
     });
   }
-
 
   userExit() {
     localStorage.clear()

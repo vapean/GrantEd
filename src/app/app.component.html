@@ -1,32 +1,36 @@
-
-
 <div class="wrapper">
-    <cabecera></cabecera>
-    <router-outlet ></router-outlet>
-    <pie-pagina></pie-pagina>
+  <cabecera></cabecera>
+  <router-outlet></router-outlet>
+  <pie-pagina></pie-pagina>
 
 </div>
 
 
 
- <!-- Modal -->
- <div class="modal overlay" [ngClass]="{'show': showIntertitial}" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">REGÍSTRATE</h5>
-              <button type="button" class="close" (click)="hideInsterstitial()" >
-                <span >&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas vero, maxime, ex iusto illum dignissimos dolorem porro obcaecati et rem exercitationem dolorum totam tenetur. Molestiae quae totam incidunt aspernatur provident!
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" (click)="hideInsterstitial()">En otro momento</button>
-              <button type="button" class="btn btn-primary blue" [routerLink]="['/registro']">¡Por supuesto!</button>
-              <button type="button" class="btn btn-success" [routerLink]="['/login']">¡Ya estoy registrado!</button>
-            </div>
-          </div>
-        </div>
+<!-- Modal -->
+<div class="modal overlay" [ngClass]="{'show': showIntertitial}" id="exampleModalCenter" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">REGÍSTRATE</h5>
+        <button type="button" class="close" (click)="hideInsterstitial()">
+          <span>&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <p>        ¿Quieres poder guardar todas tus preferencias?
+          </p>
+        <p>        ¿Quieres poder comentar los post?
+          </p>
+        <p>        ¿Quieres poder guardar tus becas favoritas?
+          </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="hideInsterstitial()">En otro momento</button>
+        <button type="button" class="btn btn-primary blue" [routerLink]="['/registro']">¡Por supuesto!</button>
+        <button type="button" class="btn btn-success" [routerLink]="['/login']">¡Ya estoy registrado!</button>
+      </div>
+    </div>
+  </div>
+</div>

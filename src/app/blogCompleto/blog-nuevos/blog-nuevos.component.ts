@@ -12,13 +12,11 @@ export class BlogNuevosComponent implements OnInit {
 
 
   constructor(private blogService: BlogService) {
-
    }
 
   ngOnInit() {
     this.blogService.getNewPosts().subscribe(res => {
       this.arrBlogsNuevos = res
-      console.log(this.arrBlogsNuevos)
     })
   }
 

@@ -13,19 +13,14 @@ export class UsuarioBecasComponent implements OnInit {
   constructor(private becasService: BecasService) { }
 
   ngOnInit() {
-    console.log(localStorage.getItem('token'))
     this.becasService.getBecasFavUsuario(localStorage.getItem('token')).subscribe(res => {
-      console.log(res)
       this.arrBecasUsuario= res
     })
   }
 
-
   manejarBecaSelecionada(beca){
     this.becaSeleccionada = beca
-
   }
-
 
   deleteBecaFav(beca) {  
     this.becasService.deleteBecasFav(beca.id, localStorage.getItem('token')).subscribe(res => {

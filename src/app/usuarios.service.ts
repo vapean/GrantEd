@@ -11,9 +11,6 @@ export class UsuariosService {
   // arrProvinces: string[]
   arrGenders: string[]
   arrCountriesHispanos: any[]
-
-
-
   url: string
 
   constructor(private httpClient: HttpClient) {
@@ -2064,7 +2061,167 @@ export class UsuariosService {
           "iso2": "BR",
           "iso3": "BRA",
           "phone_code": 55
-        },
+      },
+      {
+        "nombre": "Chile",
+        "name": "Chile",
+        "nom": "Chili",
+        "iso2": "CL",
+        "iso3": "CHL",
+        "phone_code": 56
+      },
+      {
+        "nombre": "Colombia",
+        "name": "Colombia",
+        "nom": "Colombie",
+        "iso2": "CO",
+        "iso3": "COL",
+        "phone_code": 57
+      },
+      {
+        "nombre": "Costa Rica",
+        "name": "Costa Rica",
+        "nom": "Costa Rica",
+        "iso2": "CR",
+        "iso3": "CRI",
+        "phone_code": 506
+      },
+      {
+        "nombre": "Cuba",
+        "name": "Cuba",
+        "nom": "Cuba",
+        "iso2": "CU",
+        "iso3": "CUB",
+        "phone_code": 53
+      },
+      {
+        "nombre": "Ecuador",
+        "name": "Ecuador",
+        "nom": "Equateur",
+        "iso2": "EC",
+        "iso3": "ECU",
+        "phone_code": 593
+      },
+      {
+        "nombre": "El Salvador",
+        "name": "El Salvador",
+        "nom": "El Salvador",
+        "iso2": "SV",
+        "iso3": "SLV",
+        "phone_code": 503
+      },
+      {
+        "nombre": "España",
+        "name": "Spain",
+        "nom": "Espagne",
+        "iso2": "ES",
+        "iso3": "ESP",
+        "phone_code": 34
+      },
+      {
+        "nombre": "Filipinas",
+        "name": "Philippines",
+        "nom": "Philippines",
+        "iso2": "PH",
+        "iso3": "PHL",
+        "phone_code": 63
+      },
+      {
+        "nombre": "Guatemala",
+        "name": "Guatemala",
+        "nom": "Guatemala",
+        "iso2": "GT",
+        "iso3": "GTM",
+        "phone_code": 502
+      },
+      {
+        "nombre": "Guinea Ecuatorial",
+        "name": "Equatorial Guinea",
+        "nom": "Guinée Equatoriale",
+        "iso2": "GQ",
+        "iso3": "GNQ",
+        "phone_code": 240
+      },
+      {
+        "nombre": "Honduras",
+        "name": "Honduras",
+        "nom": "Honduras",
+        "iso2": "HN",
+        "iso3": "HND",
+        "phone_code": 504
+      },
+      {
+        "nombre": "México",
+        "name": "Mexico",
+        "nom": "Mexique",
+        "iso2": "MX",
+        "iso3": "MEX",
+        "phone_code": 52
+      },
+      {
+        "nombre": "Nicaragua",
+        "name": "Nicaragua",
+        "nom": "Nicaragua",
+        "iso2": "NI",
+        "iso3": "NIC",
+        "phone_code": 505
+      },
+      {
+        "nombre": "Panamá",
+        "name": "Panama",
+        "nom": "Panama",
+        "iso2": "PA",
+        "iso3": "PAN",
+        "phone_code": 507
+      },
+      {
+        "nombre": "Paraguay",
+        "name": "Paraguay",
+        "nom": "Paraguay",
+        "iso2": "PY",
+        "iso3": "PRY",
+        "phone_code": 595
+      },
+      {
+        "nombre": "Perú",
+        "name": "Peru",
+        "nom": "Pérou",
+        "iso2": "PE",
+        "iso3": "PER",
+        "phone_code": 51
+      },
+      {
+        "nombre": "Puerto Rico",
+        "name": "Puerto Rico",
+        "nom": "Porto Rico",
+        "iso2": "PR",
+        "iso3": "PRI",
+        "phone_code": 1
+      },
+      {
+        "nombre": "República Dominicana",
+        "name": "Dominican Republic",
+        "nom": "République Dominicaine",
+        "iso2": "DO",
+        "iso3": "DOM",
+        "phone_code": "1 809"
+      },
+      {
+        "nombre": "Uruguay",
+        "name": "Uruguay",
+        "nom": "Uruguay",
+        "iso2": "UY",
+        "iso3": "URY",
+        "phone_code": 598
+      },
+      {
+        "nombre": "Venezuela",
+        "name": "Venezuela",
+        "nom": "Venezuela",
+        "iso2": "VE",
+        "iso3": "VEN",
+        "phone_code": 58
+      },
 
       ]
   }

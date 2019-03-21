@@ -1,5 +1,4 @@
 .modal-body {
-
     padding: 0;
 }
 
@@ -11,5 +10,8 @@
 .modal-content {
     background-color: black;
     border: none
+}
 
+.videoImage{
+    max-width: 100%;
 }

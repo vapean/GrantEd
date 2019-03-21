@@ -12,6 +12,7 @@ import { ErrorComponent } from './error/error.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { BlogMainComponent } from './blogCompleto/blog-main/blog-main.component';
+import { ResultadosComponent } from './buscador/resultados/resultados.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'usuario', component: UsuarioComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'beca/:idBeca', component: ResultadosComponent},
 
 
   { path: '**', component: ErrorComponent}

@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UsuariosService } from 'src/app/usuarios.service';
 
-import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { BecasService } from '../becas.service';
 
@@ -81,9 +80,9 @@ export class BuscadorComponent {
   }
 
   manejarBuscador() {
-    // console.log(this.formBuscador.value)
     this.becasService.obtenerBecas(this.formBuscador.value).subscribe(res => {
       this.arrBecas = res
+
       if (this.arrBecas.length>0) {
         this.noBecas= false
       }
@@ -96,7 +95,6 @@ export class BuscadorComponent {
 
   manejarBecaSelecionada(beca){
     this.becaSeleccionada = beca
-
   }
 
   addBecaFav(beca) {
@@ -114,5 +112,4 @@ export class BuscadorComponent {
       });        
     })
   }
-  
 }

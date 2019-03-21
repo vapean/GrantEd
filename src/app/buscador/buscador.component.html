@@ -1,69 +1,65 @@
 <div class="container">
   <div class="row">
-
-    <div class="sectionTitle text-center">
+    <div class="sectionTitle text-center mb-0">
       <h2 class="textTitle"> Buscador </h2>
-      <hr class="mb-0">
     </div>
-    <div class="w-100 px-4">
-
-
-      <form novalidate [formGroup]="formBuscador" (ngSubmit)="manejarBuscador()" *ngIf="formBuscador">
-
-        <div class="row mb-3 mt-5">
-          <div class="col-md-12 col-lg-6 pr-5">
-            <mat-form-field>
-              <mat-select placeholder="Area de estudios" formControlName="study_field" multiple>
-                <mat-option *ngFor="let field of arrFields" [value]="field.toLowerCase()">{{field}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-
-          <div class="col-md-12 col-lg-6 pl-5 ">
-            <mat-form-field>
-              <mat-select placeholder="Tipo de estudios" formControlName="study_level" multiple>
-                <mat-option *ngFor="let level of arrLevels" [value]="level.toLowerCase()">{{level}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
+  </div>
+  <hr class="mt-0">
+  <div class="w-100 px-4">
+    <form novalidate [formGroup]="formBuscador" (ngSubmit)="manejarBuscador()" *ngIf="formBuscador">
+      <div class="row mb-3 mt-5 mb-5">
+        <div class="col-md-12 col-lg-6 pr-5">
+          <mat-form-field class="w-100">
+            <mat-select placeholder="Area de estudios" formControlName="study_field" multiple>
+              <mat-option *ngFor="let field of arrFields" [value]="field.toLowerCase()">{{field}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
 
+        <div class="col-md-12 col-lg-6 pl-5 ">
+          <mat-form-field class="w-100">
+            <mat-select placeholder="Tipo de estudios" formControlName="study_level" multiple>
+              <mat-option *ngFor="let level of arrLevels" [value]="level.toLowerCase()">{{level}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
 
-        <div class="row mb-3">
-          <div class="col-md-12 col-lg-6 pr-5">
-            <mat-form-field>
-              <mat-select placeholder="Pais de origen" formControlName="country_origin" multiple>
-                <mat-option *ngFor="let countryH of arrCountriesHispanos" [value]="countryH.nombre.toLowerCase()">
-                  {{countryH.nombre}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
 
-          <div class="col-md-12 col-lg-6 pl-5">
-            <mat-form-field>
-              <mat-select placeholder="Pais de destino" formControlName="country_destination" multiple>
-                <mat-option *ngFor="let country of arrCountries" [value]="country.nombre.toLowerCase()">
-                  {{country.nombre}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
+      <div class="row mb-5">
+        <div class="col-md-12 col-lg-6 pr-5">
+          <mat-form-field class="w-100">
+            <mat-select placeholder="Pais de origen" formControlName="country_origin" multiple>
+              <mat-option *ngFor="let countryH of arrCountriesHispanos" [value]="countryH.nombre.toLowerCase()">
+                {{countryH.nombre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
 
-
-        <div class="row mb-3">
-          <div class="col-4 mx-auto">
-            <button class="btn btn-success btn-block text-uppercase" type="submit">
-              ¡Encuéntrame las mejores becas! </button>
-            <!-- [disabled]="formBuscador.invalid" -->
-          </div>
+        <div class="col-md-12 col-lg-6 pl-5">
+          <mat-form-field class="w-100">
+            <mat-select placeholder="Pais de destino" formControlName="country_destination" multiple>
+              <mat-option *ngFor="let country of arrCountries" [value]="country.nombre.toLowerCase()">
+                {{country.nombre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
+      </div>
 
-      </form>
-    </div>
+
+      <div class="row mb-5 mt-5">
+        <div class="col-4 mx-auto">
+          <button class="btn btn-success btn-block text-uppercase" type="submit">
+            ¡Encuéntrame las mejores becas! </button>
+          <!-- [disabled]="formBuscador.invalid" -->
+        </div>
+      </div>
+
+    </form>
   </div>
 
 
@@ -93,48 +89,88 @@
         *ngFor="let beca of arrBecas; let par = even; let impar = odd;">
 
         <div class="card-header">
-          <i class="fa fa-heart cursor" *ngIf="beca?.isFavorite" (click)="deleteBecaFav(beca)" data-dismiss="modal"></i>
-          <i class="fa fa-heart-o cursor" *ngIf="!beca?.isFavorite" (click)="addBecaFav(beca)" data-dismiss="modal"></i>
-          <h5 class="card-title">
-            {{beca.title}}
-          </h5>
+          <div class="row">
+            <div class="col-10">
+              <h5 class="card-title"> {{beca.title}} </h5>
+            </div>
+            <div class="col-2" *ngIf="usuarioService?.usuarioLogado()">
+              <i class="fa fa-heart cursor" *ngIf="beca?.isFavorite" (click)="deleteBecaFav(beca)"
+                data-dismiss="modal"></i>
+              <i class="fa fa-heart-o cursor" *ngIf="!beca?.isFavorite" (click)="addBecaFav(beca)"
+                data-dismiss="modal"></i>
+            </div>
+            <div class="col-2" *ngIf="!usuarioService?.usuarioLogado()">
+              <i class="fa fa-heart-o cursor" data-toggle="modal" data-target="#registerModal"></i>
+            </div>
+          </div>
         </div>
         <div class="card-body cursor" data-toggle="modal" data-target="#idModal" (click)="manejarBecaSelecionada(beca)">
           <h5 class="card-title">{{beca.semestre}}</h5>
-          <p class="card-text" [innerHTML]="beca.description"></p>
+          <p class="card-text"><span [innerHTML]="beca.description | slice:0:200"></span> ... <br> <span
+              class="font-weight-bold text-center">Ver mas</span></p>
         </div>
       </div>
     </div>
   </div>
+</div>
 
+<!-- Modal registrados -->
+<div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          <i class="fa fa-heart cursor" *ngIf="becaSeleccionada?.isFavorite" (click)="deleteBecaFav(becaSeleccionada)"
+            data-dismiss="modal"></i>
+          <i class="fa fa-heart-o cursor" *ngIf="!becaSeleccionada?.isFavorite" (click)="addBecaFav(becaSeleccionada)"
+            data-dismiss="modal"></i>
+          {{becaSeleccionada?.title}}
+        </h5>
 
-  <!-- Modal -->
-  <div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">
-            <i class="fa fa-heart cursor" *ngIf="becaSeleccionada?.isFavorite" (click)="deleteBecaFav(becaSeleccionada)"
-              data-dismiss="modal"></i>
-            <i class="fa fa-heart-o cursor" *ngIf="!becaSeleccionada?.isFavorite" (click)="addBecaFav(becaSeleccionada)"
-              data-dismiss="modal"></i>
-            {{becaSeleccionada?.title}}
-          </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p [innerHTML]="becaSeleccionada?.description"></p>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary" target="_blank" [href]="becaSeleccionada?.url">Solicitar la Beca</a>
+        <button type="button" class="btn btn-success" data-dismiss="modal"
+          [routerLink]="['/beca', becaSeleccionada?.beca_id]">Ir a la Beca</button>
 
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p [innerHTML]="becaSeleccionada?.description"></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Compartir link</button>
-          <a target="_blank" [href]="becaSeleccionada?.url"><button type="button" class="btn btn-primary"> Ir a la
-              beca</button></a>
-        </div>
       </div>
     </div>
   </div>
-  <!-- fin del modal -->
+</div>
+
+
+
+<!-- Modal no registrados -->
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title font-weight-bold " id="exampleModalLongTitle">REGÍSTRATE</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p> ¿Quieres poder guardar todas tus preferencias?
+        </p>
+        <p> ¿Quieres poder comentar los post?
+        </p>
+        <p> ¿Quieres poder guardar tus becas favoritas?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">En otro momento</button>
+        <button type="button" class="btn btn-primary blue" [routerLink]="['/registro']" data-dismiss="modal">¡Por
+          supuesto!</button>
+      </div>
+    </div>
+  </div>
+</div>

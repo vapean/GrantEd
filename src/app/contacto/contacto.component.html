@@ -1,73 +1,88 @@
+<section class="Material-contact-section section-padding section-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 wow animated fadeInLeft text-center" data-wow-delay=".2s">
+        <h2 class="section-title">Me alegro de hablar contigo</h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-7 mt-3 contact-widget-section2 wow animated fadeInLeft pr-4 border-right" data-wow-delay=".2s">
 
-<div class="row">
-    <div class="col-lg-10 col-xl-10 mx-auto">
-      <div class="card card-signin flex-row my-4">
-        <div class="card-img-left d-none d-md-flex">
+        <p>Día a dia desde GrantEd nos esforzamos en tener la información lo más actualizada posible y de ofrecer el
+          mejor servicio. Y es por ello que estaremos encantados de conocer cualquier sugerecia sobre el funcionamiento
+          o acerca de becas omitidas.</p>
+        <p class="mb-0">
+          ¡Muchas gracias por todos y cada uno de vuestros comentarios!</p>
+
+          <img class="image my-3" src="../../assets/images/mathyas-kurmann-102977-unsplash.jpg" alt="Imagen contacto">
+
+
+        <div class="find-widget">
+          ¿Cuál es nuestro nombre? <a href="">GrantEd</a>
         </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="sectionTitle">
-                <h2 class="textTitle"> Contáctanos </h2>
-                <hr class="mb-0">
-            </div>
+        <div class="find-widget">
+          ¿Dónde nos encontramos? <a href="">4435 Berkshire Circle Knoxville</a>
+        </div>
+        <div class="find-widget">
+          ¿Prefieres contactarnos por teléfono/whatsapp?: <a href="">+ 690-83-20-21</a>
+        </div>
+
+        <div class="find-widget">
+          Sitios Web amigos: <a target="_blank" href="https://elbecador.wordpress.com/">https://elbecador.wordpress.com</a>
+        </div>
+       
+      </div>
+      <div class="col-md-5 wow animated fadeInRight pl-4" data-wow-delay=".2s">
+        <form class="shake" novalidate [formGroup]="formContacto" (ngSubmit)="manejarFormularioContacto()">
+          <div class="form-group label-floating">
+            <label class="control-label" for="name">Nombre</label>
+            <input class="form-control" id="name" type="text" formControlName='name'>
           </div>
-          
-
-          <mat-card>
-              <mat-card-content>
-                <p>¿Tienes alguna sugerencia?¿Conoces de alguna beca que no este en nuestra base? No dudes en contactarnos</p>
-        
-                <mat-vertical-stepper class="marginV">
-                  <mat-step [stepControl]="firstFormGroup">
-                    <form [formGroup]="firstFormGroup" class="form-full-width">
-                      <ng-template matStepLabel>Introduce tus datos</ng-template>
-                      <div class="row">
-                        <mat-form-field class="input-full-width">
-                          <input type="text" matInput placeholder="Nombre y apellidos" formControlName="name">
-                        </mat-form-field>
-                      </div>
-        
-                      <div class="row">
-                        <mat-form-field class="input-full-width">
-                          <input matInput placeholder="Dirección email" formControlName="email">
-                        </mat-form-field>
-                      </div>
-        
-        
-                      <div>
-                        <button mat-raised-button color="warn" matStepperNext>Siguiente</button>
-                      </div>
-                    </form>
-                  </mat-step>
-                  <mat-step [stepControl]="secondFormGroup">
-                    <form [formGroup]="secondFormGroup" class="form-full-width">
-                      <ng-template matStepLabel>¿Qué querías decirnos?</ng-template>
-                      <mat-form-field class="input-full-width">
-                          <textarea matInput placeholder="Escribe tu mensaje" formControlName="message"></textarea>
-                      </mat-form-field>
-                      
-                      <div>
-                        <button mat-raised-button color="accent" matStepperPrevious>Atrás</button>
-                        <button mat-raised-button color="warn" matStepperNext>Siguiente</button>
-                      </div>
-                    </form>
-                  </mat-step>
-                  <mat-step [stepControl]="secondFormGroup">
-                    <ng-template matStepLabel>¡Hecho!</ng-template>
-                    <p> <strong>¡Muchas gracias por tu aportación!</strong> </p>
-                    <p>Nos pondremos en contacto lo antes posible</p>
-                    <div>
-                      <button mat-raised-button color="accent" matStepperPrevious>Atrás</button>
-                    </div>
-                  </mat-step>
-                </mat-vertical-stepper>
-        
-              </mat-card-content>
-        
-            </mat-card>
-  
-        
-        </div>
+          <div class="form-group label-floating">
+            <label class="control-label" for="email">Email</label>
+            <input class="form-control" id="email" type="email" formControlName='email'>
+          </div>
+          <div class="form-group label-floating">
+            <label class="control-label">Asunto</label>
+            <input class="form-control" id="msg_subject" type="text" formControlName='subject'>
+          </div>
+          <div class="form-group label-floating">
+            <label for="message" class="control-label">Mensaje</label>
+            <textarea class="form-control" rows="3" id="message" formControlName='message'></textarea>
+          </div>
+          <div class="form-submit mt-5 text-center">
+            <button class="btn btn-success" type="submit" id="form-submit" data-toggle="modal"
+              data-target="#exampleModalCenter"> Enviar</button>
+            <div id="msgSubmit" class="h3 text-center hidden"></div>
+            <div class="clearfix"></div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</section>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">{{result?.resultado}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{result?.mensaje}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success" [routerLink]="['/']" data-dismiss="modal">Volver a la principal</button>
+      </div>
+    </div>
+  </div>
+</div>
