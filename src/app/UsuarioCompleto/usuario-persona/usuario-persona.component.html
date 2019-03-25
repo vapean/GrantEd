@@ -11,7 +11,7 @@
     <form novalidate [formGroup]="formUpdate" (ngSubmit)="manejarUpdate()" *ngIf="formUpdate?.value">
 
       <div class="row">
-        <div class="col-2 pt-4">
+        <div class="col-lg-2 pt-4">
           <div class="row">
             <div class="contenedor contenedor-ficha">
                 <img [src]="urlImagen" class="image mx-auto d-block"
@@ -41,12 +41,10 @@
 
 
       </div>
-        <div class="col-10">
+        <div class="col-lg-10">
 
           <div class="row">
-
-
-            <div class="col-6 px-5">
+            <div class="col-lg-6 px-lg-5">
               <div class="form-label-group">
                 <label>¿Cómo te llamas?*</label>
 
@@ -126,17 +124,17 @@
               </div>
 
             </div>
-            <div class="col-6 px-5">
+            <div class="col-lg-6 px-5">
               <div class="row">
                 <mat-form-field class="col-12 mb-4">
                    <mat-select placeholder="Genero" formControlName="gender" multiple>
-                    <mat-option *ngFor="let gender of arrGenders" [value]="gender">{{gender}}
+                    <mat-option *ngFor="let gender of arrGenders" [value]="gender.toLowerCase()">{{gender}}
                     </mat-option>
                   </mat-select> 
                 </mat-form-field>
 
                 <mat-form-field class="col-12 mb-4">
-                  <mat-select placeholder="Area de estudios" formControlName="study_field" multiple>
+                  <mat-select placeholder="Área de estudios" formControlName="study_field" multiple>
                     <mat-option *ngFor="let field of arrFields" [value]="field.toLowerCase()">{{field}}
                     </mat-option>
                   </mat-select>
@@ -151,14 +149,14 @@
 
 
                 <mat-form-field class="col-12 mb-4">
-                  <mat-select placeholder="Pais de origen" formControlName="country_origin"multiple>
+                  <mat-select placeholder="País de origen" formControlName="country_origin"multiple>
                     <mat-option *ngFor="let country of arrCountries" [value]="country.nombre.toLowerCase()">{{country.nombre}}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
 
                 <mat-form-field class="col-12 mb-4">
-                  <mat-select placeholder="Pais de destino" formControlName="country_destination" multiple>
+                  <mat-select placeholder="País de destino" formControlName="country_destination" multiple>
                     <mat-option *ngFor="let country of arrCountries" [value]="country.nombre.toLowerCase()">{{country.nombre}}
                     </mat-option>
                   </mat-select>

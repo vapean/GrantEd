@@ -15,6 +15,7 @@ export class PostFiltroComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.blogService.getPostById(params.idPost).subscribe(res => {
         this.post = res
+        console.log(this.post);
       })
     })
   }

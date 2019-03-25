@@ -38,3 +38,11 @@
           padding: 3em 3em 0em 3em;
       }
   }
+
+
+  strong{
+      font-weight: 700 !important;
+  }
+  img{
+      text-align: center
+  }

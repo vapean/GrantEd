@@ -1,126 +1,137 @@
-
-img{
+img {
     max-width: 6em;
 }
 
-a{
+a {
     font-weight: 400;
 }
 
-i{
+i {
     margin: 0 1em
 }
 
-.borderGreen{
+.borderGreen {
     border-left: 2px solid rgb(3, 206, 3);
     border-right: 2px solid rgb(3, 206, 3)
 }
 
-.navbar{
+.navbar {
     padding: 0em 1em 0em 1em;
     margin: 0em !important
 }
 
-#navbarNav{
+#navbarNav {
     margin: 0em 0em 0em 5em !important
 }
 
-.nav-link{
+.nav-link {
     border: 2px solid transparent;
     padding: 1em;
     transition: 400ms
 }
+
 .nav-link:hover {
-    color:  rgb(3, 206, 3) !important;
+    color: rgb(3, 206, 3) !important;
     border-bottom: 2px solid rgb(3, 206, 3);
 }
 
 .dropdown-menu {
-    top: 100% ;
-    background-color:rgb(12, 12, 63);
+    top: 100%;
+    background-color: rgb(12, 12, 63);
 }
 
-.dropdown-item{
+.dropdown-item {
     color: white
 }
+
 .dropdown-item:hover {
-    color: rgb(3, 206, 3) ;
+    color: rgb(3, 206, 3);
     text-decoration: none;
     background-color: inherit;
 }
 
 .navbar-toggler {
-    color:  rgb(3, 206, 3);
+    color: rgb(3, 206, 3);
     border: 2px solid rgb(3, 206, 3)
 }
 
-.enphasis{
+.enphasis {
     display: inline-block;
-    color:  rgb(3, 206, 3) !important;
+    color: rgb(3, 206, 3) !important;
     font-weight: 500;
     width: 100%;
     text-align: center;
 }
 
-.enphasis:hover{
+.enphasis:hover {
     color: #222225 !important;
 }
 
-.mislis a{
+.mislis a {
     display: block;
-    color:  rgb(3, 206, 3);
+    color: rgb(3, 206, 3);
     width: 8em;
     text-align: center
 }
 
-.mislis a:hover{
+.mislis a:hover {
     background-color: rgb(3, 206, 3);
-    color:rgb(12, 12, 63) !important;
+    color: rgb(12, 12, 63) !important;
 }
 
 /* Movil */
 
-.btn-outline-warning{
+.btn-outline-warning {
     transition: 400ms
 }
 
 .btn-outline-warning:hover {
-    background-color: rgb(3, 206, 3);;
-    border-color:rgba(255, 255, 255, 0.5);
+    background-color: rgb(3, 206, 3);
+    ;
+    border-color: rgba(255, 255, 255, 0.5);
 }
-.middle{
-    color: rgb(3, 206, 3) ;
+
+.middle {
+    color: rgb(3, 206, 3);
     font-size: 0.8em;
     display: none
 }
 
 /* Routerlink Active */
 
-.active-link{
-    color:  rgb(3, 206, 3) !important;
+.active-link {
+    color: rgb(3, 206, 3) !important;
     border-bottom: 2px solid rgb(3, 206, 3);
 }
 
-.active-link-enphasis{
+.active-link-enphasis {
     color: #222225 !important;
     background: rgb(3, 206, 3);
 }
 
-.active-link-nb{
-    color:  rgb(3, 206, 3) !important;
+.active-link-nb {
+    color: rgb(3, 206, 3) !important;
 }
 
-
-
-
 @media(max-width: 1200px) {
-  .middle{
-      display: block
-  };
+    .middle {
+        display: block
+    }
+    
+    .mislis a {
+        color: transparent; 
+        text-align: left 
+    }
+
+   
+    .borderGreen {
+        border-left: 2px solid transparent ;
+        border-right: 2px solid transparent ;
+    }
 }
 
 @media(max-width: 576px) {
-    .middle{
+    .middle {
         display: none
     };
 }

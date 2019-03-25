@@ -11,5 +11,9 @@ export class PiePaginaComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  userExit() {
+    localStorage.clear()
+  }
 
 }

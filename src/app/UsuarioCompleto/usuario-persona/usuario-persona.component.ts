@@ -38,7 +38,7 @@ export class UsuarioPersonaComponent {
   constructor(private usuarioService: UsuariosService, private router: Router, private storage: AngularFireStorage) {
     this.result = ""
     this.usuario = {}
-    this.arrCountries = this.usuarioService.obtenerPaises()
+    this.arrCountries = this.usuarioService.obtenerPaisesHispanos()
     this.arrLevels = this.usuarioService.obtenerNiveles()
     this.arrGenders = this.usuarioService.obtenerGeneros()
     this.arrFields = this.usuarioService.obtenerCampos()

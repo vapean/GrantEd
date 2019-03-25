@@ -5,7 +5,7 @@
     <div class="row border p-3" *ngFor="let comment of arrComments">
       <div class="col-2 d-flex align-items-center">
         <div class="image mx-auto ">
-          <img [src]="comment.image" alt="card image">
+          <img onerror="if (this.src != 'error.jpg') this.src = '../../../assets/images/imagengranted.jpg'"[src]="comment.image" alt="card image">
         </div>
 
       </div>

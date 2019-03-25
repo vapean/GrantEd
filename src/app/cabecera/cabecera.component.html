@@ -35,7 +35,7 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav ml-auto mr-4 borderGreen mr-3" *ngIf="!usuariosService.usuarioLogado()">
+      <ul class="navbar-nav ml-auto mr-4 borderGreen mr-lg-3" *ngIf="!usuariosService.usuarioLogado()">
         <li class="nav-item mislis">
           <a class="nav-link enphasis" routerLinkActive="active-link-enphasis"
             [routerLink]="['/registro']">Regístrate</a>
@@ -45,7 +45,7 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav ml-auto mr-4 borderGreen mr-3" *ngIf="usuariosService.usuarioLogado()">
+      <ul class="navbar-nav ml-auto mr-4 borderGreen mr-lg-3" *ngIf="usuariosService.usuarioLogado()">
         <li class="nav-item mislis">
           <a class="nav-link" [routerLink]="['/usuario']" routerLinkActive="active-link-enphasis">Usuario</a>
         </li>

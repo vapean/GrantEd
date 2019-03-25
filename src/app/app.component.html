@@ -19,17 +19,19 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>        ¿Quieres poder guardar todas tus preferencias?
-          </p>
-        <p>        ¿Quieres poder comentar los post?
-          </p>
-        <p>        ¿Quieres poder guardar tus becas favoritas?
-          </p>
+        <p> ¿Quieres poder guardar todas tus preferencias?
+        </p>
+        <p> ¿Quieres poder comentar los post?
+        </p>
+        <p> ¿Quieres poder guardar tus becas favoritas?
+        </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="hideInsterstitial()">En otro momento</button>
-        <button type="button" class="btn btn-primary blue" [routerLink]="['/registro']">¡Por supuesto!</button>
-        <button type="button" class="btn btn-success" [routerLink]="['/login']">¡Ya estoy registrado!</button>
+        <button type="button" class="btn btn-primary blue" (click)="hideInsterstitial()"
+          [routerLink]="['/registro']">¡Por supuesto!</button>
+        <button type="button" class="btn btn-success" (click)="hideInsterstitial()" [routerLink]="['/login']">¡Ya estoy
+          registrado!</button>
       </div>
     </div>
   </div>

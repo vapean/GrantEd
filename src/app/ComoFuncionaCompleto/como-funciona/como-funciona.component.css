@@ -147,16 +147,16 @@
 }
 
 .main-timeline .timeline:nth-child(4n) .timeline-icon {
-    border-top-color: #105572;
-    border-right-color: #105572
+    border-top-color: #2ac40c;
+    border-right-color: #2ac40c
 }
 
 .main-timeline .timeline:nth-child(4n) .year {
-    color: #105572
+    color: #2ac40c
 }
 
 .main-timeline .timeline:nth-child(4n) .timeline-content, .main-timeline .timeline:nth-child(4n) .timeline-content:before {
-    background: #105572
+    background: #2ac40c
 }
 
 @media only screen and (max-width:1199px) {

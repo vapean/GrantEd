@@ -185,3 +185,18 @@ ul.social li:hover:nth-child(5) a:after{
 .margin{
  margin-top: 5vw
 }
+
+
+@media(max-width: 1200px) {
+  
+}
+
+@media(max-width: 576px) {
+    .socialRowLg {
+        display: none
+	};
+	
+	.socialRowSm{
+		display: inline-block;
+	}
+}

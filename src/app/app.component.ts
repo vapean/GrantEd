@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -26,7 +26,7 @@ export class AppComponent {
   }
   
   ngOnInit() {
-    if (this.url != "/registro" && this.url !="/login") {
+    if (this.url != "/registro" && this.url !="/login" && !localStorage.getItem('token')) {
       setTimeout(() => {
         this.showIntertitial = true
       }, 18000)
@@ -36,4 +36,14 @@ export class AppComponent {
   hideInsterstitial() {
     this.showIntertitial = false
   }
+
+  // @HostListener('window:unload', [ '$event' ])
+  // unloadHandler(event) {
+  //   console.log('adios')
+  // }
+
+  // @HostListener('window:beforeunload', [ '$event' ])
+  // beforeUnloadHander(event) {
+  //   localStorage.clear()
+  // }
 }

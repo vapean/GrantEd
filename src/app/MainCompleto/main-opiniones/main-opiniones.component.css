@@ -38,3 +38,9 @@ span{
     height: auto;
 }
 
+@media(max-width: 1200px) {
+    .imageCircle{
+       margin: 0 auto
+    } 
+}
+

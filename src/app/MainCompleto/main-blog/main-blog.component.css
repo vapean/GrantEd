@@ -1,3 +1,6 @@
+.card-body {
+    height: 400px !important;
+  }
 
 .btn-primary {
     color: #fff;

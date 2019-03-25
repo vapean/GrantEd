@@ -52,7 +52,7 @@
 .form-label-group input {
   height: auto;
   border-radius: 2rem;
-  width: 30vw
+  width: 100%
 }
 
 /* .btn-google {

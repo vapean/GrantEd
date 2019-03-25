@@ -7,17 +7,17 @@
   <hr class="mt-0">
   <div class="w-100 px-4">
     <form novalidate [formGroup]="formBuscador" (ngSubmit)="manejarBuscador()" *ngIf="formBuscador">
-      <div class="row mb-3 mt-5 mb-5">
-        <div class="col-md-12 col-lg-6 pr-5">
+      <div class="row mb-3 mt-5 mb-lg-5">
+        <div class="col-md-12 col-lg-6 pr-lg-lg-5">
           <mat-form-field class="w-100">
-            <mat-select placeholder="Area de estudios" formControlName="study_field" multiple>
+            <mat-select placeholder="Área de estudios" formControlName="study_field" multiple>
               <mat-option *ngFor="let field of arrFields" [value]="field.toLowerCase()">{{field}}
               </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
 
-        <div class="col-md-12 col-lg-6 pl-5 ">
+        <div class="col-md-12 col-lg-6 pl-lg-5 ">
           <mat-form-field class="w-100">
             <mat-select placeholder="Tipo de estudios" formControlName="study_level" multiple>
               <mat-option *ngFor="let level of arrLevels" [value]="level.toLowerCase()">{{level}}
@@ -29,9 +29,9 @@
 
 
       <div class="row mb-5">
-        <div class="col-md-12 col-lg-6 pr-5">
+        <div class="col-md-12 col-lg-6 pr-lg-5">
           <mat-form-field class="w-100">
-            <mat-select placeholder="Pais de origen" formControlName="country_origin" multiple>
+            <mat-select placeholder="País de origen" formControlName="country_origin" multiple>
               <mat-option *ngFor="let countryH of arrCountriesHispanos" [value]="countryH.nombre.toLowerCase()">
                 {{countryH.nombre}}
               </mat-option>
@@ -39,9 +39,9 @@
           </mat-form-field>
         </div>
 
-        <div class="col-md-12 col-lg-6 pl-5">
+        <div class="col-md-12 col-lg-6 pl-lg-5">
           <mat-form-field class="w-100">
-            <mat-select placeholder="Pais de destino" formControlName="country_destination" multiple>
+            <mat-select placeholder="País de destino" formControlName="country_destination" multiple>
               <mat-option *ngFor="let country of arrCountries" [value]="country.nombre.toLowerCase()">
                 {{country.nombre}}
               </mat-option>
@@ -52,10 +52,11 @@
 
 
       <div class="row mb-5 mt-5">
-        <div class="col-4 mx-auto">
+        <div class="col-lg-4 mx-auto">
           <button class="btn btn-success btn-block text-uppercase" type="submit">
             ¡Encuéntrame las mejores becas! </button>
           <!-- [disabled]="formBuscador.invalid" -->
+         
         </div>
       </div>
 
@@ -85,7 +86,7 @@
     </div>
 
     <div class="row" *ngIf="!noBecas">
-      <div [ngClass]="{'col-5 card card-signin p-0 mb-4':true, 'offset-2':impar}"
+      <div [ngClass]="{'col-lg-5 col-sm-12 card card-signin p-0 mb-4':true, 'offset-lg-2':impar}"
         *ngFor="let beca of arrBecas; let par = even; let impar = odd;">
 
         <div class="card-header">
