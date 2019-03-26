@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
 export class BecasService {
   url: string
   constructor(private httpClient: HttpClient) {
-    this.url = "http://localhost:3000/api/becas"
+    this.url = "back.grantedweb.com/api/becas"
   }
 
   obtenerBecas(filtro) {

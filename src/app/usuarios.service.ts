@@ -16,7 +16,7 @@ export class UsuariosService {
   constructor(private httpClient: HttpClient) {
     //   this.url= "http://registrate.ngrok.io/"
     // }
-    this.url = "http://localhost:3000/api/usuario"
+    this.url = "back.grantedweb.com/api/usuario"
   }
 
   enviarFormulario(form) {

@@ -24,7 +24,7 @@ export class UsuarioPersonaComponent {
   arrGenders: string[]
   comprobacionPais: boolean
   result: string
-  // comprobacionResultado: boolean
+  comprobacionResultado: boolean
   usuario: any
 
   width: any
@@ -163,5 +163,9 @@ export class UsuarioPersonaComponent {
   userExit() {
     localStorage.clear()
     this.router.navigate(['main']);
+  }
+
+  continuarUsuario() {
+    this.router.navigate(['usuario']);
   }
 }
