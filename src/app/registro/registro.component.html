@@ -11,7 +11,7 @@
             <form novalidate [formGroup]="formRegistro" (ngSubmit)="manejarFormulario()">
 
 
-              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+              <div id="carouselExampleControls" class="carousel slide mx-3 mx-lg-0 mt-4" data-ride="carousel" data-interval="false">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
 
@@ -280,14 +280,17 @@
                       </div>
 
                       <div class="col-md-12 col-lg-6 pl-lg-5">
-                        <button class="botonReactivo btn btn-block btn-login text-uppercase font-weight-bold"
+                        <!-- <button class="botonReactivo btn btn-block btn-login text-uppercase font-weight-bold"
                           type="submit" [ngClass]="{'button-disabled': formRegistro.invalid}"
                           [disabled]="formRegistro.invalid" data-toggle="modal"
+                          data-target="#exampleModalCenter">Regístrate</button> -->
+                          <button class="botonReactivo btn btn-block btn-login text-uppercase font-weight-bold"
+                          type="submit" data-toggle="modal"
                           data-target="#exampleModalCenter">Regístrate</button>
-                        <p
+                        <!-- <p
                           class="error" *ngIf="formRegistro.invalid" >
                           Parece que has olvidado completar alguno de los campos marcados con *
-                        </p>
+                        </p> -->
 
                       </div>
                     </div>

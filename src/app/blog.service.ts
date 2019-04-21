@@ -11,8 +11,8 @@ export class BlogService {
   
 
   constructor(private httpClient: HttpClient) {
-    this.url = "back.grantedweb.com/api/blog"
-    this.urlComment ="back.grantedweb.com/api/comentario"
+    this.url = "https://back.grantedweb.com/api/blog"
+    this.urlComment ="https://back.grantedweb.com/api/comentario"
   }
   
   getImportantes() {

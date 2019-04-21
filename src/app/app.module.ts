@@ -54,6 +54,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage'
 import { environment } from 'src/environments/environment';
 
+import {HashLocationStrategy, LocationStrategy} from '@angular/common'
+
 
 
 @NgModule({
@@ -112,7 +114,8 @@ import { environment } from 'src/environments/environment';
     AngularFireStorageModule
 
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+//en el providers iria el login guard
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -21,8 +21,10 @@ i {
 }
 
 #navbarNav {
-    margin: 0em 0em 0em 5em !important
+    text-align: center !important
+
 }
+
 
 .nav-link {
     border: 2px solid transparent;
@@ -71,7 +73,8 @@ i {
     display: block;
     color: rgb(3, 206, 3);
     width: 8em;
-    text-align: center
+    text-align: center;
+    margin: 0 auto !important
 }
 
 .mislis a:hover {
@@ -118,10 +121,10 @@ i {
         display: block
     }
     
-    .mislis a {
+    /* .mislis a {
         color: transparent; 
         text-align: left 
-    }
+    } */
 
    
     .borderGreen {

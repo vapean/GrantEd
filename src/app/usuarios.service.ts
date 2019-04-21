@@ -12,11 +12,12 @@ export class UsuariosService {
   arrGenders: string[]
   arrCountriesHispanos: any[]
   url: string
+  
 
   constructor(private httpClient: HttpClient) {
     //   this.url= "http://registrate.ngrok.io/"
     // }
-    this.url = "back.grantedweb.com/api/usuario"
+    this.url = "https://back.grantedweb.com/api/usuario"
   }
 
   enviarFormulario(form) {

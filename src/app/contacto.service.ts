@@ -9,7 +9,7 @@ export class ContactoService {
   url: string
 
   constructor(private httpClient: HttpClient) {
-    this.url = "back.grantedweb.com/contacto"
+    this.url = "https://back.grantedweb.com/contacto"
    }
   
   enviarContacto(form) {

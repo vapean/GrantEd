@@ -16,19 +16,19 @@ export class ContactoComponent implements OnInit {
   ngOnInit() {
     this.formContacto = new FormGroup(
       {
-        name: new FormControl("Muchas Gracias por la atención", [
+        name: new FormControl("", [
           Validators.required,
           Validators.maxLength(20)
         ]),
-        email: new FormControl("Recordad:", [
+        email: new FormControl("", [
           Validators.required,
           Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
         ]),
-        subject: new FormControl("Esto lo vimos ayer", [
+        subject: new FormControl("", [
           Validators.required,
           Validators.maxLength(50)
         ]),
-        message: new FormControl("Muchas gracias por vuestra atención y un placer haberos conocido", [
+        message: new FormControl("", [
           Validators.required,
         ])
       }

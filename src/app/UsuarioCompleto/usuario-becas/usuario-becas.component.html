@@ -1,16 +1,16 @@
 <div class="borde green">
 
-    <div class="row">
-        <div class="sectionTitle">
-          <h2 class="textTitle">Becas favoritas</h2>
-        </div>
-      </div>
-      <hr>
-  
+  <div class="row">
+    <div class="sectionTitle">
+      <h2 class="textTitle">Becas favoritas</h2>
+    </div>
+  </div>
+  <hr>
+
 
   <div class="border border-top-0 mb-4">
     <div class="row">
-      <div [ngClass]="{'col-5 card card-signin p-0 mb-4':true, 'offset-2':impar}"
+      <div [ngClass]="{'col-lg-5 col-sm-12 card card-signin p-0 mb-4':true, 'offset-lg-2':impar}"
         *ngFor="let beca of arrBecasUsuario; let par = even; let impar = odd;">
 
         <div class="card-header">
@@ -21,11 +21,43 @@
         </div>
         <div class="card-body cursor" data-toggle="modal" data-target="#idModal" (click)="manejarBecaSelecionada(beca)">
           <h5 class="card-title">{{beca.semestre}}</h5>
-          <p class="card-text" [innerHTML]="beca.description"></p>
+          <p class="card-text"><span [innerHTML]="beca.description | slice:0:200"></span> ... <br> <span
+              class="font-weight-bold text-center">Ver mas</span></p>
         </div>
       </div>
     </div>
   </div>
- 
 
+
+</div>
+
+<!-- modal -->
+<div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          <i class="fa fa-heart cursor" *ngIf="becaSeleccionada?.isFavorite" (click)="deleteBecaFav(becaSeleccionada)"
+            data-dismiss="modal"></i>
+          <i class="fa fa-heart-o cursor" *ngIf="!becaSeleccionada?.isFavorite" (click)="addBecaFav(becaSeleccionada)"
+            data-dismiss="modal"></i>
+          {{becaSeleccionada?.title}}
+        </h5>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p [innerHTML]="becaSeleccionada?.description"></p>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary" target="_blank" [href]="becaSeleccionada?.url">Solicitar la Beca</a>
+        <button type="button" class="btn btn-success" data-dismiss="modal"
+          [routerLink]="['/beca', becaSeleccionada?.beca_id]">Ir a la Beca</button>
+
+      </div>
+    </div>
+  </div>
 </div>

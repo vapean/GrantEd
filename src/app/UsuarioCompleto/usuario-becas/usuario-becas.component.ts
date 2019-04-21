@@ -9,7 +9,7 @@ import { BecasService } from 'src/app/becas.service';
 export class UsuarioBecasComponent implements OnInit {
 
   arrBecasUsuario: any
-  becaSeleccionada: AnalyserOptions
+  becaSeleccionada: any
   constructor(private becasService: BecasService) { }
 
   ngOnInit() {

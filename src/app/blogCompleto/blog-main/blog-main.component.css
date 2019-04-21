@@ -53,3 +53,11 @@
     padding-left: 20px;
     padding-right: 20px
   }
+
+
+  @media (max-width: 992px) {
+    .rowheight{
+      height: 100%;
+      overflow: hidden
+    }
+  }

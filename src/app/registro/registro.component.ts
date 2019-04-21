@@ -35,34 +35,34 @@ export class RegistroComponent implements OnInit {
     ngOnInit() {
         this.formRegistro = new FormGroup(
             {
-                name: new FormControl("Antonio", [
+                name: new FormControl("", [
                     Validators.required,
                     Validators.maxLength(20)
                 ]),
-                surname: new FormControl("Vallejo", [
+                surname: new FormControl("", [
                     Validators.required,
                     Validators.maxLength(20)
                 ]),
-                username: new FormControl("Ojellav", [
+                username: new FormControl("", [
                     Validators.required,
                     Validators.maxLength(15)
                 ]),
-                mail: new FormControl("antonio.vapei@gmail.com", [
+                mail: new FormControl("", [
                     Validators.required,
                     Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
                 ]),
-                password: new FormControl("Caba22lla", [
+                password: new FormControl("", [
                     Validators.pattern(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/)
                 ]),
-                password_repeat: new FormControl("Caba22lla", []),
-                adress: new FormControl("Calle Cristo 2 A", [
+                password_repeat: new FormControl("", []),
+                adress: new FormControl("", [
                     Validators.required,
                     Validators.maxLength(20)
                 ]),
                 study_field: new FormControl("", []),
                 study_level: new FormControl("", []),
                 country_origin: new FormControl("", [
-                    Validators.required
+                    // Validators.required
                 ]),
                 // province_destination: new FormControl("", []),
                 // province_origin: new FormControl("", []),
@@ -70,7 +70,7 @@ export class RegistroComponent implements OnInit {
                 date: new FormControl("", []),
                 gender: new FormControl("", [
                 ]),
-                age: new FormControl("19", [this.ageValidator])
+                age: new FormControl("", [this.ageValidator])
             },
             [this.passwordRepeatValidator]
             // este va a nivel del formulario general proque tiene que acceder a mas de un imput

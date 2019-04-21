@@ -17,7 +17,13 @@
         <li class="nav-item pl-xl-5">
           <a class="nav-link " routerLinkActive="active-link" [routerLink]="['/comofunciona']">¿Cómo Funciona?</a>
         </li>
-        <li class="nav-item dropdown pl-xl-5">
+        <li class="nav-item pl-xl-5">
+          <a class="nav-link " routerLinkActive="active-link" [routerLink]="['/servicios/buscador']">Buscador</a>
+        </li>
+        <li class="nav-item pl-xl-5">
+          <a class="nav-link " routerLinkActive="active-link" [routerLink]="['/servicios/blog']">Blog</a>
+        </li>
+        <!-- <li class="nav-item dropdown pl-xl-5">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             Servicios
@@ -27,7 +33,7 @@
             <hr class="dropdown-divider">
             <a class="dropdown-item" [routerLink]="['servicios/blog']" routerLinkActive="active-link-nb">Blog</a>
           </div>
-        </li>
+        </li> -->
 
         <li class="nav-item pl-xl-5">
           <a class="nav-link" routerLinkActive="active-link" routerLinkActive="active-link"
@@ -35,7 +41,7 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav ml-auto mr-4 borderGreen mr-lg-3" *ngIf="!usuariosService.usuarioLogado()">
+      <div class="navbar-nav ml-auto borderGreen mr-lg-3" *ngIf="!usuariosService.usuarioLogado()">
         <li class="nav-item mislis">
           <a class="nav-link enphasis" routerLinkActive="active-link-enphasis"
             [routerLink]="['/registro']">Regístrate</a>
@@ -43,13 +49,13 @@
         <li class="nav-item mislis">
           <a class="nav-link enphasis" routerLinkActive="active-link-enphasis" [routerLink]="['/login']">Accede</a>
         </li>
-      </ul>
+      </div>
 
-      <ul class="navbar-nav ml-auto mr-4 borderGreen mr-lg-3" *ngIf="usuariosService.usuarioLogado()">
+      <div class="navbar-nav ml-auto borderGreen mr-lg-3 text-center" *ngIf="usuariosService.usuarioLogado()">
         <li class="nav-item mislis">
           <a class="nav-link" [routerLink]="['/usuario']" routerLinkActive="active-link-enphasis">Usuario</a>
         </li>
-      </ul>
+      </div>
     </div>
   </nav>
 </header>

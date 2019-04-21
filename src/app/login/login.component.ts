@@ -22,12 +22,12 @@ export class LoginComponent implements OnInit {
     this.formLogin = new FormGroup(
       {
 
-        username: new FormControl("Ojellav", [
+        username: new FormControl("", [
           Validators.required,
           Validators.maxLength(15)
         ]),
 
-        password: new FormControl("Admin1234", [
+        password: new FormControl("", [
           Validators.required,
           Validators.pattern(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/)
         ]),

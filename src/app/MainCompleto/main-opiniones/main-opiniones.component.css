@@ -1,46 +1,55 @@
-
 .card {
     /* background-color: rgba(67, 247, 67, 0.24); */
     border: 0;
     border-radius: 1rem;
     /* box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.5); */
     overflow: hidden;
-  }
+}
+
 .carousel-control-next, .carousel-control-prev {
     width: 5%;
 }
 
-.carousel-item{
+.carousel-item {
     padding: 2vw 10vw
-
 }
+
 .carousel-control-next-icon {
     background-image: url(/assets/images/icons8-back-arrow-64\ copia.png) !important;
 }
+
 .carousel-control-prev-icon {
     background-image: url(/assets/images/icons8-back-arrow-64.png) !important;
 }
 
-span{
+span {
     background-color: rgba(101, 250, 101, 0.651);
     border-radius: 50%;
 }
 
-.imageCircle{
+.imageCircle {
     border-radius: 50%;
     width: 8em;
     height: 8em;
     overflow: hidden;
 }
 
-.imageCircle img{
+.imageCircle img {
     width: 100%;
     height: auto;
 }
 
 @media(max-width: 1200px) {
-    .imageCircle{
-       margin: 0 auto
-    } 
+    .imageCircle {
+        margin: 0 auto
+    }
 }
 
+@media(max-width: 576px) {
+    .carousel-control-next-icon {
+        display: none
+    }
+    .carousel-control-prev-icon {
+        display: none
+    }
+}

@@ -7,16 +7,17 @@ import { UsuariosService } from '../usuarios.service';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
+  isCollapsed: boolean
 
-  
   constructor(public usuariosService: UsuariosService) {
-   }
+  }
 
   ngOnInit() {
+    this.isCollapsed=true
   }
 
 
-  
+
 
 }
 

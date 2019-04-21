@@ -61,3 +61,30 @@
   width: 100%;
   height: 100%
 }
+
+
+@media (min-width: 992px) {
+  .new-posts .description-text {
+    padding: 4rem;
+  }
+  .new-posts .description-text hr {
+    border-color: #64a19d;
+    border-width: .25rem;
+    width: 60%;
+  }
+  .new-posts .featured-text {
+    padding: 0 0 0 2rem;
+    border-left: 0.5rem solid #64a19d;
+  }
+  .right {
+    float: right
+  }
+}
+
+@media (max-width: 992px) {
+  .rowheight{
+    height: 100%;
+    overflow: hidden
+  }
+}
+
